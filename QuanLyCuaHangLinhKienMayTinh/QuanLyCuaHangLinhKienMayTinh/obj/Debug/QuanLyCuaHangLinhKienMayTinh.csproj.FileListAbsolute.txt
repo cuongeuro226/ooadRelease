@@ -70,3 +70,4 @@ F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhK
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\QuanLyCuaHangLinhKienMayTinh\bin\Debug\ru\DevExpress.XtraVerticalGrid.v13.1.resources.dll
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\QuanLyCuaHangLinhKienMayTinh\obj\Debug\QuanLyCuaHangLinhKienMayTinh.exe
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\QuanLyCuaHangLinhKienMayTinh\obj\Debug\QuanLyCuaHangLinhKienMayTinh.pdb
+D:\Study\OOAD\QuanLyCuaHangLinhKienMayTinh\QuanLyCuaHangLinhKienMayTinh\bin\Debug\QuanLyCuaHangLinhKienMayTinh.exe.config

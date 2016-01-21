@@ -156,10 +156,31 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="ProductDataset.Designer.cs">
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDataset.xsd</DependentUpon>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\BillPrint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sales\BillPrint.Designer.cs">
+      <DependentUpon>BillPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmAddBill.cs">
       <SubType>Form</SubType>
@@ -192,17 +213,35 @@
     <Compile Include="Warehouse\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Warehouse\frmProductsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\frmProductsReport.Designer.cs">
+      <DependentUpon>frmProductsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Warehouse\frmWarehouseBill.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Warehouse\frmWarehouseBill.Designer.cs">
       <DependentUpon>frmWarehouseBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Warehouse\PrintAddWarehouseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\PrintAddWarehouseBill.Designer.cs">
+      <DependentUpon>PrintAddWarehouseBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Warehouse\ProductsReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Warehouse\ProductsReport.Designer.cs">
       <DependentUpon>ProductsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\WarehouseBillPrint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Warehouse\WarehouseBillPrint.Designer.cs">
+      <DependentUpon>WarehouseBillPrint.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="employee\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
@@ -234,6 +273,13 @@
     <EmbeddedResource Include="Guarantee\frmPhieuTraHangBaoHanh.resx">
       <DependentUpon>frmPhieuTraHangBaoHanh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\BillPrint.resx">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmAddBill.resx">
       <DependentUpon>frmAddBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,25 +298,45 @@
     <EmbeddedResource Include="Warehouse\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\frmProductsReport.resx">
+      <DependentUpon>frmProductsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Warehouse\frmWarehouseBill.resx">
       <DependentUpon>frmWarehouseBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\PrintAddWarehouseBill.resx">
+      <DependentUpon>PrintAddWarehouseBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Warehouse\ProductsReport.resx">
       <DependentUpon>ProductsReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\WarehouseBillPrint.resx">
+      <DependentUpon>WarehouseBillPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.exe.config" />
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.config" />
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.manifest" />
-    <None Include="ProductDataset.xsc">
-      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    <None Include="ProductReport.xsc">
+      <DependentUpon>ProductReport.xsd</DependentUpon>
     </None>
-    <None Include="ProductDataset.xsd">
+    <None Include="ProductReport.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ProductDataset.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProductReport.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ProductDataset.xss">
-      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    <None Include="ProductReport.xss">
+      <DependentUpon>ProductReport.xsd</DependentUpon>
+    </None>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xsc">
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBH_CuaHangBanMayTinhVaLinhKienDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xss">
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -286,6 +352,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xsc">
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xss">
+      <DependentUpon>QLBH_CuaHangBanMayTinhVaLinhKienDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\image\Contacts-icon.png" />
   </ItemGroup>
   <ItemGroup>

@@ -169,9 +169,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
                         //s.Visible = true;
                         //s.Location = new Point(0, 0);
                         //AddForm(s, ((DevComponents.DotNetBar.ButtonX)sender).Text);
-                        ProductsReport products = new ProductsReport();
-                        products.ShowPreviewDialog();break;
-                    }
+                        break;}
                 case "Tiếp nhận bảo hành":
                     {
                         Form s = new Guarantee.frmPhieuTiepNhanBaoHanh(MaNV);

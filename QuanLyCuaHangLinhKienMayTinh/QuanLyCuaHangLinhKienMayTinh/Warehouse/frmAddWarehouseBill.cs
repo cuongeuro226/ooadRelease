@@ -21,6 +21,8 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         private BllProduct _bllProduct;
         private BllWarehouseBill _bllWarehouseBill;
         private BllWarehouseBillDetail _bllWarehouseBillDetail;
+
+        private string warehouseID = "";
         public frmAddWarehouseBill()
         {
             InitAll();
@@ -45,6 +47,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             try
             {
                 txtWarehouseBillID.Text = CreateNewWarehouseBillID();
+                warehouseID = txtWarehouseBillID.Text;
                 txtNguoiLapPhieu.Text = maNV;
                 MaSanPham.DataSource = _bllProduct.GetListProducts();
                 MaSanPham.DisplayMember = "TenSanPham";
@@ -100,8 +103,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         {
             try
             {
-                return _bllWarehouseBill.CreateWarehouseBillID();
-            }
+                return _bllWarehouseBill.CreateWarehouseBillID();            }
             catch (Exception ex)
             {
                 DisplayNotify(ex.Message, -1);
@@ -139,9 +141,9 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
 
                 if (_bllWarehouseBill.AddWarehouseBillTran(warehouseBill, list))
                 {
+                    txtWarehouseBillID.Text = CreateNewWarehouseBillID();
                     DisplayNotify("Thêm phiếu nhập kho thành công!", 1);
                     MessageBox.Show("Thêm phiếu nhập kho thành công!");
-                    txtWarehouseBillID.Text = CreateNewWarehouseBillID();
                     dgvDetailWarehouseBill.Rows.Clear();
                 }
 
@@ -194,13 +196,12 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             DisplayNotify("Chấp nhận!", 1);
             btnThem.Enabled = true;
 
-            txtTotal.Text = SumTotal().ToString();
+            txtTotal.Text = String.Format("{0:N0} VND", SumTotal());
         }
 
         private double SumTotal()
         {
-            try
-            {
+            try{
                 double s = 0;
                 for (int i = 0; i < dgvDetailWarehouseBill.Rows.Count - 1; i++)
                 {
@@ -287,5 +288,28 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             {
                 DisplayNotify(ex.Message, -1);
             }
-        }}
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            btnThem.PerformClick();
+
+            if (warehouseID == txtWarehouseBillID.Text)
+            {
+                MessageBox.Show("Không thể thêm phiếu nhập kho");
+                return;
+            }
+
+            WarehouseBillPrint rep = new WarehouseBillPrint();
+            rep.FilterString = string.Format("[MaPhieuNhapKho] = '{0}'", warehouseID);
+            rep.lblTotal.Text = txtTotal.Text;
+            rep.CreateDocument();
+            PrintAddWarehouseBill frm = new PrintAddWarehouseBill();
+            frm.documentViewer1.DocumentSource = rep;
+            frm.ShowDialog();
+
+        }
+
+      
+    }
 }

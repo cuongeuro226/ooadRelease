@@ -54,6 +54,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotify = new System.Windows.Forms.Label();
             this.timerNotify = new System.Windows.Forms.Timer(this.components);
+            this.btnIn = new DevComponents.DotNetBar.ButtonX();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -106,6 +107,7 @@
             this.panel7.Controls.Add(this.labelX3);
             this.panel7.Controls.Add(this.dgvDetailWarehouseBill);
             this.panel7.Controls.Add(this.btnKiemTra);
+            this.panel7.Controls.Add(this.btnIn);
             this.panel7.Controls.Add(this.btnThoat);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
@@ -203,7 +205,7 @@
             this.txtTotal.Border.Class = "TextBoxBorder";
             this.txtTotal.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(787, 508);
+            this.txtTotal.Location = new System.Drawing.Point(786, 413);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(141, 20);
@@ -216,7 +218,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(727, 508);
+            this.labelX3.Location = new System.Drawing.Point(726, 413);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(54, 23);
             this.labelX3.TabIndex = 8;
@@ -252,7 +254,7 @@
             this.dgvDetailWarehouseBill.RowHeadersVisible = false;
             this.dgvDetailWarehouseBill.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvDetailWarehouseBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDetailWarehouseBill.Size = new System.Drawing.Size(605, 476);
+            this.dgvDetailWarehouseBill.Size = new System.Drawing.Size(605, 390);
             this.dgvDetailWarehouseBill.TabIndex = 5;
             this.dgvDetailWarehouseBill.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetailWarehouseBill_CellBeginEdit);
             this.dgvDetailWarehouseBill.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetailWarehouseBill_CellEndEdit);
@@ -361,6 +363,19 @@
             // 
             this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
             // 
+            // btnIn
+            // 
+            this.btnIn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnIn.Location = new System.Drawing.Point(933, 131);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(80, 28);
+            this.btnIn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In";
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // frmAddWarehouseBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,5 +421,6 @@
         private DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn DonGiaNhap;
         private DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu1;
+        private DevComponents.DotNetBar.ButtonX btnIn;
     }
 }
