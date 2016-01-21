@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0177502-4DD8-45DC-979B-EA2177B7E02E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyCuaHangLinhKienMayTinh</RootNamespace>
+    <AssemblyName>QuanLyCuaHangLinhKienMayTinh</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v13.1.Extensions, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v13.1.Win, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v13.1.UI, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.1.UI, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Utils.v13.1.UI\v4.0_13.1.8.0__b88d1754d700e49a\DevExpress.Utils.v13.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v13.1.UI, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v13.1.Wizard, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v13.1.Win, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v13.1.Extensions, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Core, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Extensions, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="employee\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmExtendGuideSoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmExtendGuideSoft.Designer.cs">
+      <DependentUpon>frmExtendGuideSoft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmExtendHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmExtendHome.Designer.cs">
+      <DependentUpon>frmExtendHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmInfoEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmInfoEmployee.Designer.cs">
+      <DependentUpon>frmInfoEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmExtendIntroCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmExtendIntroCompany.Designer.cs">
+      <DependentUpon>frmExtendIntroCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee\frmPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee\frmPosition.Designer.cs">
+      <DependentUpon>frmPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\frmPhieuTiepNhanBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\frmPhieuTiepNhanBaoHanh.Designer.cs">
+      <DependentUpon>frmPhieuTiepNhanBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\frmPhieuTraHangBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\frmPhieuTraHangBaoHanh.Designer.cs">
+      <DependentUpon>frmPhieuTraHangBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="ProductDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\frmAddBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmAddBill.Designer.cs">
+      <DependentUpon>frmAddBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\frmReportSaleResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmReportSaleResult.Designer.cs">
+      <DependentUpon>frmReportSaleResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\frmAddWarehouseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\frmAddWarehouseBill.Designer.cs">
+      <DependentUpon>frmAddWarehouseBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\frmWarehouseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\frmWarehouseBill.Designer.cs">
+      <DependentUpon>frmWarehouseBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\ProductsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Warehouse\ProductsReport.Designer.cs">
+      <DependentUpon>ProductsReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="employee\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmExtendGuideSoft.resx">
+      <DependentUpon>frmExtendGuideSoft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmExtendHome.resx">
+      <DependentUpon>frmExtendHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmInfoEmployee.resx">
+      <DependentUpon>frmInfoEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmExtendIntroCompany.resx">
+      <DependentUpon>frmExtendIntroCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee\frmPosition.resx">
+      <DependentUpon>frmPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\frmPhieuTiepNhanBaoHanh.resx">
+      <DependentUpon>frmPhieuTiepNhanBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\frmPhieuTraHangBaoHanh.resx">
+      <DependentUpon>frmPhieuTraHangBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmAddBill.resx">
+      <DependentUpon>frmAddBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmReportSaleResult.resx">
+      <DependentUpon>frmReportSaleResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\frmAddWarehouseBill.resx">
+      <DependentUpon>frmAddWarehouseBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\frmWarehouseBill.resx">
+      <DependentUpon>frmWarehouseBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\ProductsReport.resx">
+      <DependentUpon>ProductsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.exe.config" />
+    <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.config" />
+    <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.manifest" />
+    <None Include="ProductDataset.xsc">
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductDataset.xss">
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\Contacts-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tải xuống.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\chart-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\File-New-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\home-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\keynote-on-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\megaphone-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\Button-Upload-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{d08adfd6-3744-45d8-9eb6-e544d2a374ae}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLayer\CommonLayer.csproj">
+      <Project>{842849b1-cd5b-4224-b77d-0022c25379ec}</Project>
+      <Name>CommonLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{3b7150d3-8b40-4913-a77a-e0be6bc7fbe0}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\TieuDeChung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Resources\imageEmployee\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_loop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BLL.dll" />
+    <Content Include="bin\Debug\BLL.pdb" />
+    <Content Include="bin\Debug\CommonLayer.dll" />
+    <Content Include="bin\Debug\CommonLayer.pdb" />
+    <Content Include="bin\Debug\DAL.dll" />
+    <Content Include="bin\Debug\DAL.pdb" />
+    <Content Include="bin\Debug\DevComponents.DotNetBar2.dll" />
+    <Content Include="bin\Debug\DevComponents.DotNetBar2.xml" />
+    <Content Include="bin\Debug\DevExpress.Charts.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.CodeParser.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Dashboard.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Dashboard.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Dashboard.v13.1.Extensions.dll" />
+    <Content Include="bin\Debug\DevExpress.Dashboard.v13.1.Win.dll" />
+    <Content Include="bin\Debug\DevExpress.Dashboard.v13.1.Win.xml" />
+    <Content Include="bin\Debug\DevExpress.Data.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Data.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v13.1.UI.dll" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v13.1.UI.xml" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.Map.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Map.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Office.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Office.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.PivotGrid.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.PivotGrid.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Printing.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Printing.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.RichEdit.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.RichEdit.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Sparkline.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Sparkline.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.SpellChecker.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.SpellChecker.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Utils.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Utils.v13.1.UI.dll" />
+    <Content Include="bin\Debug\DevExpress.Utils.v13.1.UI.xml" />
+    <Content Include="bin\Debug\DevExpress.Utils.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.Xpo.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Xpo.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraBars.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraBars.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.UI.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.UI.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.Wizard.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.Wizard.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraEditors.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraEditors.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v13.1.Presets.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v13.1.Win.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v13.1.Win.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraGrid.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGrid.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraLayout.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraLayout.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraMap.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraMap.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraNavBar.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraNavBar.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraPivotGrid.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraPivotGrid.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraPrinting.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraPrinting.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraRichEdit.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraRichEdit.v13.1.Extensions.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraRichEdit.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.Extensions.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.Extensions.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraSpellChecker.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraSpellChecker.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraTreeList.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraTreeList.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraVerticalGrid.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraVerticalGrid.v13.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraWizard.v13.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraWizard.v13.1.xml" />
+    <Content Include="bin\Debug\de\DevExpress.Dashboard.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Dashboard.v13.1.Win.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Data.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.DataAccess.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Office.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.PivotGrid.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Printing.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.RichEdit.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Utils.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Utils.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Xpo.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraBars.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraCharts.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraCharts.v13.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraEditors.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraGauges.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraGauges.v13.1.Presets.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraLayout.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraNavBar.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraPivotGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraPrinting.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraReports.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraRichEdit.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraRichEdit.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraScheduler.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraScheduler.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraScheduler.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraSpellChecker.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraTreeList.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraVerticalGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraWizard.v13.1.resources.dll" />
+    <Content Include="bin\Debug\DTO.dll" />
+    <Content Include="bin\Debug\DTO.pdb" />
+    <Content Include="bin\Debug\es\DevExpress.Dashboard.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Dashboard.v13.1.Win.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Data.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.DataAccess.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Office.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.PivotGrid.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Printing.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.RichEdit.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Utils.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Utils.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Xpo.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraBars.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraCharts.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraCharts.v13.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraEditors.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraGauges.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraGauges.v13.1.Presets.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraLayout.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraNavBar.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraPivotGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraPrinting.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraReports.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraRichEdit.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraRichEdit.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraScheduler.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraScheduler.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraScheduler.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraSpellChecker.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraTreeList.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraVerticalGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraWizard.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Dashboard.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Dashboard.v13.1.Win.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Data.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.DataAccess.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Office.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.PivotGrid.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Printing.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.RichEdit.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Utils.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Utils.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Xpo.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraBars.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraCharts.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraCharts.v13.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraEditors.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraGauges.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraGauges.v13.1.Presets.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraLayout.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraNavBar.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraPivotGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraPrinting.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraReports.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraRichEdit.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraRichEdit.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraScheduler.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraScheduler.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraScheduler.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraSpellChecker.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraTreeList.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraVerticalGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraWizard.v13.1.resources.dll" />
+    <Content Include="bin\Debug\Microsoft.ApplicationBlocks.Data.dll" />
+    <Content Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.exe" />
+    <Content Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.pdb" />
+    <Content Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe" />
+    <Content Include="bin\Debug\ru\DevExpress.Dashboard.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Dashboard.v13.1.Win.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Data.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.DataAccess.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Office.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.PivotGrid.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Printing.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.RichEdit.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Sparkline.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Utils.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Utils.v13.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Xpo.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraBars.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraCharts.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraCharts.v13.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraEditors.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraGauges.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraGauges.v13.1.Presets.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraLayout.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraNavBar.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraPivotGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraPrinting.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraReports.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraRichEdit.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraRichEdit.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraScheduler.v13.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraScheduler.v13.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraScheduler.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraSpellChecker.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraTreeList.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraVerticalGrid.v13.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraWizard.v13.1.resources.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
