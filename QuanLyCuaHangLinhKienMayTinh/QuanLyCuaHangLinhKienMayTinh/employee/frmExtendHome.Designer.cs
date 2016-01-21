@@ -56,8 +56,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -208,7 +208,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
@@ -216,7 +216,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(745, 68);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Công ty cổ phần tin học LTN";
+            this.label1.Text = "Công ty cổ phần tin học   ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -248,7 +248,7 @@
             this.panel4.Size = new System.Drawing.Size(960, 120);
             this.panel4.TabIndex = 1;
             // 
-            // frmHome
+            // frmExtendHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -261,7 +261,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(976, 327);
-            this.Name = "frmHome";
+            this.Name = "frmExtendHome";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);

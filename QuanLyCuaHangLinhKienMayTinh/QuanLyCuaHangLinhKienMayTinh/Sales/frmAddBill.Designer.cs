@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchProductName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbProductType = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblNotify = new System.Windows.Forms.Label();
@@ -49,9 +53,10 @@
             this.ColumnSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNumberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDel = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtSumMoney = new System.Windows.Forms.TextBox();
             this.txtTaxPercent = new System.Windows.Forms.TextBox();
@@ -72,11 +77,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timerNotify = new System.Windows.Forms.Timer(this.components);
-            this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
@@ -89,6 +89,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(12, 12);
@@ -132,6 +133,28 @@
             this.dgvProduct.TabIndex = 7;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
+            // colMaSP
+            // 
+            this.colMaSP.DataPropertyName = "MaSanPham";
+            this.colMaSP.HeaderText = "Mã SP";
+            this.colMaSP.Name = "colMaSP";
+            this.colMaSP.ReadOnly = true;
+            this.colMaSP.Visible = false;
+            // 
+            // colTenSP
+            // 
+            this.colTenSP.DataPropertyName = "TenSanPham";
+            this.colTenSP.HeaderText = "Tên SP";
+            this.colTenSP.Name = "colTenSP";
+            this.colTenSP.ReadOnly = true;
+            // 
+            // colSL
+            // 
+            this.colSL.DataPropertyName = "SoLuong";
+            this.colSL.HeaderText = "Số lượng";
+            this.colSL.Name = "colSL";
+            this.colSL.ReadOnly = true;
+            // 
             // txtSearchProductName
             // 
             this.txtSearchProductName.Location = new System.Drawing.Point(23, 71);
@@ -170,13 +193,14 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel4.Controls.Add(this.btnRefresh);
             this.panel4.Controls.Add(this.txtPhoneNumber);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.lblNotify);
             this.panel4.Controls.Add(this.lbStatus);
             this.panel4.Controls.Add(this.dgvProductAdded);
-            this.panel4.Controls.Add(this.btnCancel);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.groupBox1);
@@ -193,6 +217,18 @@
             this.panel4.Size = new System.Drawing.Size(587, 515);
             this.panel4.TabIndex = 2;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRefresh.Location = new System.Drawing.Point(512, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 52;
+            this.btnRefresh.Text = "làm tươi";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -203,6 +239,7 @@
             this.txtPhoneNumber.Size = new System.Drawing.Size(110, 20);
             this.txtPhoneNumber.TabIndex = 41;
             this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
+            this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             // 
             // label10
             // 
@@ -238,9 +275,6 @@
             this.dgvProductAdded.AllowUserToDeleteRows = false;
             this.dgvProductAdded.AllowUserToOrderColumns = true;
             this.dgvProductAdded.AllowUserToResizeRows = false;
-            this.dgvProductAdded.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductAdded.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductAdded.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductAdded.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -251,14 +285,14 @@
             this.ColumnNumberID,
             this.clDel});
             this.dgvProductAdded.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductAdded.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductAdded.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductAdded.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvProductAdded.Location = new System.Drawing.Point(22, 194);
             this.dgvProductAdded.MultiSelect = false;
@@ -321,20 +355,6 @@
             this.clDel.ReadOnly = true;
             this.clDel.Text = "XXXXXXXX";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(498, 468);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(60, 23);
-            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCancel.TabIndex = 36;
-            this.btnCancel.Tag = "18";
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnSave
             // 
             this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -362,6 +382,26 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(541, 73);
             this.panel5.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(494, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "VND";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(496, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "VND";
             // 
             // label16
             // 
@@ -492,6 +532,7 @@
             this.txtIdCardNumber.Name = "txtIdCardNumber";
             this.txtIdCardNumber.Size = new System.Drawing.Size(174, 20);
             this.txtIdCardNumber.TabIndex = 1;
+            this.txtIdCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             // 
             // txtCustomerId
             // 
@@ -550,48 +591,6 @@
             // 
             this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
             // 
-            // colMaSP
-            // 
-            this.colMaSP.DataPropertyName = "MaSanPham";
-            this.colMaSP.HeaderText = "Mã SP";
-            this.colMaSP.Name = "colMaSP";
-            this.colMaSP.ReadOnly = true;
-            this.colMaSP.Visible = false;
-            // 
-            // colTenSP
-            // 
-            this.colTenSP.DataPropertyName = "TenSanPham";
-            this.colTenSP.HeaderText = "Tên SP";
-            this.colTenSP.Name = "colTenSP";
-            this.colTenSP.ReadOnly = true;
-            // 
-            // colSL
-            // 
-            this.colSL.DataPropertyName = "SoLuong";
-            this.colSL.HeaderText = "Số lượng";
-            this.colSL.Name = "colSL";
-            this.colSL.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(496, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "VND";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(494, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "VND";
-            // 
             // frmAddBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,6 +601,7 @@
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(875, 556);
             this.Name = "frmAddBill";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -649,7 +649,6 @@
         private System.Windows.Forms.TextBox txtTaxPercent;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtTaxMoney;
-        private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtSumMoney;
@@ -671,5 +670,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

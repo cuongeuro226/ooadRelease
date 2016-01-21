@@ -89,6 +89,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.lblNotify = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.picTop = new System.Windows.Forms.PictureBox();
@@ -100,7 +101,6 @@
             this.txtFindText = new System.Windows.Forms.TextBox();
             this.btnEdit = new DevComponents.DotNetBar.ButtonX();
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
-            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnSearch = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
@@ -720,6 +720,7 @@
             this.txtSalary.TabIndex = 10;
             this.txtSalary.Tag = "lblSalary";
             this.txtSalary.TextChanged += new System.EventHandler(this.ControlTexxtbox_change);
+            this.txtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             this.txtSalary.Layout += new System.Windows.Forms.LayoutEventHandler(this.Control_Layout);
             // 
             // label55
@@ -800,6 +801,7 @@
             this.txtPhone.TabIndex = 5;
             this.txtPhone.Tag = "lblPhone";
             this.txtPhone.TextChanged += new System.EventHandler(this.ControlTexxtbox_change);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             this.txtPhone.Layout += new System.Windows.Forms.LayoutEventHandler(this.Control_Layout);
             // 
             // label4
@@ -823,6 +825,7 @@
             this.txtNumberID.TabIndex = 4;
             this.txtNumberID.Tag = "lblNumberID";
             this.txtNumberID.TextChanged += new System.EventHandler(this.ControlTexxtbox_change);
+            this.txtNumberID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             this.txtNumberID.Layout += new System.Windows.Forms.LayoutEventHandler(this.Control_Layout);
             // 
             // label3
@@ -872,6 +875,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnRefresh);
             this.panel5.Controls.Add(this.lblNotify);
             this.panel5.Controls.Add(this.lblHeader);
             this.panel5.Controls.Add(this.picTop);
@@ -881,6 +885,18 @@
             this.panel5.Size = new System.Drawing.Size(1080, 29);
             this.panel5.TabIndex = 0;
             this.panel5.Tag = "0";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRefresh.Location = new System.Drawing.Point(993, 5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "làm tươi";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblNotify
             // 
@@ -934,7 +950,6 @@
             this.panel4.Controls.Add(this.pnlFind);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Controls.Add(this.btnExit);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.btnAdd);
@@ -1018,20 +1033,6 @@
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(993, 223);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnExit.TabIndex = 30;
-            this.btnExit.Tag = "22";
-            this.btnExit.Text = "Thoát";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // btnSave
             // 
             this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1081,6 +1082,10 @@
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.AllowUserToOrderColumns = true;
             this.dgvData.AllowUserToResizeRows = false;
+            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnEmployeeID,
@@ -1130,7 +1135,6 @@
             this.columnEmployeeID.Name = "columnEmployeeID";
             this.columnEmployeeID.ReadOnly = true;
             this.columnEmployeeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.columnEmployeeID.Width = 74;
             // 
             // ColumnEmployeeName
             // 
@@ -1138,7 +1142,6 @@
             this.ColumnEmployeeName.HeaderText = "Tên Nhân viên";
             this.ColumnEmployeeName.Name = "ColumnEmployeeName";
             this.ColumnEmployeeName.ReadOnly = true;
-            this.ColumnEmployeeName.Width = 73;
             // 
             // ColumnSex
             // 
@@ -1146,7 +1149,6 @@
             this.ColumnSex.HeaderText = "Giới tính";
             this.ColumnSex.Name = "ColumnSex";
             this.ColumnSex.ReadOnly = true;
-            this.ColumnSex.Width = 74;
             // 
             // ColumnNumberID
             // 
@@ -1154,7 +1156,6 @@
             this.ColumnNumberID.HeaderText = "Số CMND";
             this.ColumnNumberID.Name = "ColumnNumberID";
             this.ColumnNumberID.ReadOnly = true;
-            this.ColumnNumberID.Width = 73;
             // 
             // ColumnPhone
             // 
@@ -1162,7 +1163,6 @@
             this.ColumnPhone.HeaderText = "SĐT";
             this.ColumnPhone.Name = "ColumnPhone";
             this.ColumnPhone.ReadOnly = true;
-            this.ColumnPhone.Width = 74;
             // 
             // ColumnAge
             // 
@@ -1170,7 +1170,6 @@
             this.ColumnAge.HeaderText = "Tuổi";
             this.ColumnAge.Name = "ColumnAge";
             this.ColumnAge.ReadOnly = true;
-            this.ColumnAge.Width = 73;
             // 
             // columnBirthDay
             // 
@@ -1178,7 +1177,6 @@
             this.columnBirthDay.HeaderText = "Ngày sinh";
             this.columnBirthDay.Name = "columnBirthDay";
             this.columnBirthDay.ReadOnly = true;
-            this.columnBirthDay.Width = 74;
             // 
             // ColumnStatusName
             // 
@@ -1186,7 +1184,6 @@
             this.ColumnStatusName.HeaderText = "Trạng Thái";
             this.ColumnStatusName.Name = "ColumnStatusName";
             this.ColumnStatusName.ReadOnly = true;
-            this.ColumnStatusName.Width = 73;
             // 
             // ColumnAddress
             // 
@@ -1194,7 +1191,6 @@
             this.ColumnAddress.HeaderText = "Địa chỉ";
             this.ColumnAddress.Name = "ColumnAddress";
             this.ColumnAddress.ReadOnly = true;
-            this.ColumnAddress.Width = 74;
             // 
             // ColumnPlaceBirth
             // 
@@ -1202,7 +1198,6 @@
             this.ColumnPlaceBirth.HeaderText = "Nơi Sinh";
             this.ColumnPlaceBirth.Name = "ColumnPlaceBirth";
             this.ColumnPlaceBirth.ReadOnly = true;
-            this.ColumnPlaceBirth.Width = 73;
             // 
             // ColumnPositionID
             // 
@@ -1218,7 +1213,6 @@
             this.ColumnPositionName.HeaderText = "Vị trí";
             this.ColumnPositionName.Name = "ColumnPositionName";
             this.ColumnPositionName.ReadOnly = true;
-            this.ColumnPositionName.Width = 74;
             // 
             // ColumnSalary
             // 
@@ -1226,7 +1220,6 @@
             this.ColumnSalary.HeaderText = "Lương";
             this.ColumnSalary.Name = "ColumnSalary";
             this.ColumnSalary.ReadOnly = true;
-            this.ColumnSalary.Width = 73;
             // 
             // ColumnDayWorking
             // 
@@ -1234,7 +1227,6 @@
             this.ColumnDayWorking.HeaderText = "Ngày vào làm";
             this.ColumnDayWorking.Name = "ColumnDayWorking";
             this.ColumnDayWorking.ReadOnly = true;
-            this.ColumnDayWorking.Width = 74;
             // 
             // ColumnPassword
             // 
@@ -1370,7 +1362,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private DevComponents.DotNetBar.ButtonX btnExit;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private DevComponents.DotNetBar.ButtonX btnSearch;
         private DevComponents.DotNetBar.ButtonX btnAdd;
@@ -1436,5 +1427,6 @@
         private System.Windows.Forms.CheckBox chkguarentee;
         private System.Windows.Forms.CheckBox chkHouseWare;
         private System.Windows.Forms.CheckBox chkSale;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

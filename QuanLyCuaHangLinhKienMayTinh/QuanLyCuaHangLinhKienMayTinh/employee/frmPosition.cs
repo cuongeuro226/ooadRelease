@@ -32,7 +32,9 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch(Exception ex)
             {
-                DisplayNotify("Lỗi đọc danh sách chức vụ từ csdl", -1);
+                
+                DisplayNotify("Lỗi đọc danh sách chức vụ từ csdl, mã lỗi: " + ex.Message, -1);
+                return;
             }
             //
             try
@@ -42,7 +44,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch(Exception ex)
             {
-                DisplayNotify("Lỗi Tạo mới mã chức vụ", -1);
+                DisplayNotify("Lỗi Tạo mới mã chức vụ, mã lỗi: " + ex.Message, -1);
             }
             //button
             btnSave.Enabled = true;
@@ -60,7 +62,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch(Exception ex)
             {
-                DisplayNotify("Lỗi tạo mã nhân viên mới! ",-1);
+                DisplayNotify("Lỗi tạo mã nhân viên mới! , mã lỗi: " + ex.Message, -1);
             }
             //button
             btnSave.Enabled = true;
@@ -96,7 +98,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 }
                 catch(Exception ex)
                 {
-                    DisplayNotify("Lỗi không đọc được chức năng của Chức vụ này !",-1);
+                    DisplayNotify("Lỗi không đọc được chức năng của Chức vụ này !, mã lỗi: " + ex.Message, -1);
                 }
 
 
@@ -180,7 +182,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 }
                 catch(Exception ex)
                 {
-                    DisplayNotify("Lỗi cập nhật dữ liệu không thành công",-1);
+                    DisplayNotify("Lỗi cập nhật dữ liệu không thành công, mã lỗi: " + ex.Message, -1);
                 }
 
             }
@@ -208,7 +210,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 }
                 catch (Exception ex)
                 {
-                    DisplayNotify("Lỗi Lưu  dữ liệu không thành công", -1);
+                    DisplayNotify("Lỗi Lưu  dữ liệu không thành công, mã lỗi: " + ex.Message, -1);
                 }
 
             }
@@ -268,7 +270,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch (Exception ex)
             {
-                DisplayNotify("Lỗi Xóa dữ liệu không thành công", -1);
+                DisplayNotify("Lỗi Xóa dữ liệu không thành công, mã lỗi: " + ex.Message, -1);
             }
 
             
@@ -307,8 +309,45 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            //
+            try
+            {
+                dgvData.DataSource = positionBLL.GetAllPosition();
+                dgvData.ClearSelection();
+            }
+            catch (Exception ex)
+            {
 
-
-
+                DisplayNotify("Lỗi đọc danh sách chức vụ từ csdl, mã lỗi: " + ex.Message, -1);
+                return;
+            }
+            //
+            try
+            {
+                ResetTextbox();
+                txtPositionID.Text = positionBLL.CreatPositionID();
+            }
+            catch (Exception ex)
+            {
+                DisplayNotify("Lỗi Tạo mới mã chức vụ, mã lỗi: " + ex.Message, -1);
+            }
+            //button
+            btnSave.Enabled = true;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+        }
+        private void txtDouble_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

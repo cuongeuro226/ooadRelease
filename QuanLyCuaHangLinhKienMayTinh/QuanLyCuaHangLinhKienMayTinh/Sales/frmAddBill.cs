@@ -44,19 +44,23 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             {
                 dgvProduct.DataSource = bll.GetAllProduct();
             }
-            catch (Exception ex) { DisplayNotify("không load được danh sách sản phẩm, mã lỗi:"+ex.Message,-1); }
+            catch (Exception ex) { DisplayNotify("không load được danh sách sản phẩm, mã lỗi:" + ex.Message, -1);
+                return;
+            }
             // load nhom san pham
             try
             {
                 LoadProductCategory();
             }
-            catch (Exception ex) { DisplayNotify("không load được danh sách loại sản phẩm, mã lỗi:" + ex.Message, -1); }
+            catch (Exception ex) { DisplayNotify("không load được danh sách loại sản phẩm, mã lỗi:" + ex.Message, -1);
+                return;
+            }
             // load thue suat
             try
             {
                 txtTaxPercent.Text = bll.GetTax().ToString() + "%";
             }
-            catch (Exception ex) { DisplayNotify("không load thuế suất, mã lỗi:" + ex.Message, -1); }
+            catch (Exception ex) { DisplayNotify("không load thuế suất, mã lỗi:" + ex.Message, -1);return; }
             lbStatus.Text = "";
             //clean dgv
              
@@ -72,7 +76,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             {
                 listPhone = bll.GetAllPhone();
             }
-            catch (Exception ex) { DisplayNotify("Khoong thể load danh sách khách hàng, mã lỗi" + ex.Message, -1); }
+            catch (Exception ex) { DisplayNotify("Khoong thể load danh sách khách hàng, mã lỗi" + ex.Message, -1);return; }
             txtPhoneNumber.AutoCompleteCustomSource.AddRange(listPhone.ToArray());
             
         }
@@ -136,45 +140,69 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
 
             else
             {
-                if (int.Parse(bll.GetSumProductByID(productId)) == 0)
+                try
                 {
-                    DisplayNotify("hàng hóa đã hết", -1);
-                    return;
+                    if (int.Parse(bll.GetSumProductByID(productId)) == 0)
+                    {
+                        DisplayNotify("hàng hóa đã hết", -1);
+                        return;
+                    }
+                    // check so luong
+                    if (int.Parse(bll.GetSumProductByID(productId)) < int.Parse(nUdAmount.Value.ToString()))
+                    {
+                        DisplayNotify("số lượng hàng của sản phẩm bạn chọn hiện không đủ, bạn chọn nhỏ hơn " + int.Parse(bll.GetSumProductByID(productId)), -1);
+                        return;
+                    }
                 }
-                // check so luong
-                if (int.Parse(bll.GetSumProductByID(productId)) < int.Parse(nUdAmount.Value.ToString()))
-                {
-                    DisplayNotify("số lượng hàng của sản phẩm bạn chọn hiện không đủ, bạn chọn nhỏ hơn " + int.Parse(bll.GetSumProductByID(productId)), -1);
-                    return;
-                }
+                catch (Exception ex) { DisplayNotify("Lỗi không ghi được xuống CSDL, mã lỗi: " + ex.Message,-1); }
             }
             foreach (DataGridViewRow r in dgvProductAdded.Rows)
             {
 
                 if (r.Cells[0].Value.ToString() == productId)
                 {
-                    // check so luong
-                    if (int.Parse(bll.GetSumProductByID(productId)) < int.Parse(r.Cells[2].Value.ToString()) + nUdAmount.Value)
+                    try
                     {
-                        DisplayNotify("số lượng hàng của sản phẩm bạn chọn hiện không đủ, bạn chọn nhỏ hơn " + int.Parse(bll.GetSumProductByID(productId)), -1);
+                        // check so luong
+                        if (int.Parse(bll.GetSumProductByID(productId)) < int.Parse(r.Cells[2].Value.ToString()) + nUdAmount.Value)
+                        {DisplayNotify("số lượng hàng của sản phẩm bạn chọn hiện không đủ, bạn chọn nhỏ hơn " + int.Parse(bll.GetSumProductByID(productId)), -1);
+                            return;
+                        }
+                        //
+                        r.Cells[2].Value = int.Parse(r.Cells[2].Value.ToString()) + nUdAmount.Value;
+                        r.Cells[4].Value = rule.parrtToMonney((int.Parse(rule.partToInt(r.Cells[3].Value.ToString()))* int.Parse(r.Cells[2].Value.ToString())).ToString());
+                        r.Cells[3].Value = rule.parrtToMonney(r.Cells[3].Value.ToString());
+                        sumMoney += int.Parse(txtPrice.Text) * (int)nUdAmount.Value;
+                        sumMoney += int.Parse(txtPrice.Text) * (int)nUdAmount.Value;
+                        sumMoney += int.Parse(txtPrice.Text) * (int)nUdAmount.Value;
+                        txtTaxMoney.Text =rule.parrtToMonney( (sumMoney * 0.1).ToString());
+                        txtSumMoney.Text =rule.parrtToMonney( sumMoney.ToString());
                         return;
                     }
-                    //
-                    r.Cells[2].Value = int.Parse(r.Cells[2].Value.ToString()) + nUdAmount.Value;
-                    sumMoney += int.Parse(txtPrice.Text) * (int)nUdAmount.Value;
-                    txtTaxMoney.Text = (sumMoney * 0.1).ToString();
-                    txtSumMoney.Text = sumMoney.ToString();
-                    return;
+                    catch(Exception ex)
+                    {
+                        DisplayNotify("Lỗi không lưu được xuống csdl, mã lỗi: " + ex.Message,-1);
+                    }
+                   
                 }
             }
 
-            
-            int productPrice = int.Parse(txtPrice.Text);
-            object[] row = new object[] { productId, productName, nUdAmount.Value.ToString(), productPrice.ToString(), (productPrice * nUdAmount.Value).ToString() };
-            dgvProductAdded.Rows.Add(row);
-            sumMoney += productPrice * (int)nUdAmount.Value;
-            txtTaxMoney.Text = (sumMoney * 0.1).ToString();
-            txtSumMoney.Text = sumMoney.ToString();
+            try {
+                int productPrice = int.Parse(txtPrice.Text);
+                object[] row = new object[] { productId, productName, nUdAmount.Value.ToString(), productPrice.ToString(), (productPrice * nUdAmount.Value).ToString() };
+                row[2] = int.Parse(row[2].ToString()) ;
+                row[4] = rule.parrtToMonney((int.Parse(rule.partToInt(row[3].ToString())) * int.Parse(row[2].ToString())).ToString());
+                row[3] = rule.parrtToMonney(row[3].ToString());
+                dgvProductAdded.Rows.Add(row);
+                sumMoney += productPrice * (int)nUdAmount.Value;
+                txtTaxMoney.Text = rule.parrtToMonney((sumMoney * 0.1).ToString());
+                txtSumMoney.Text =rule.parrtToMonney( sumMoney.ToString());
+            }
+            catch(Exception ex)
+            {
+
+                DisplayNotify("Lỗi trong quá trình ghi thêm sản phẩm, mã lỗi: " + ex.Message, -1);
+            }
         }
 
         private void dgvProductAdded_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -185,7 +213,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             {
                 
                 sumMoney -= int.Parse(r.Cells[3].Value.ToString()) * int.Parse(r.Cells[2].Value.ToString());
-                txtTaxMoney.Text = (sumMoney * 0.1).ToString();
+                txtTaxMoney.Text =rule.parrtToMonney( (sumMoney * 0.1).ToString());
                 txtSumMoney.Text = sumMoney.ToString();
                 dgvProductAdded.Rows.RemoveAt(e.RowIndex);
             }
@@ -261,22 +289,22 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             if (checkBeforeSave(proList) == false)
                 return;
 
-            int check = 0;
+             
 
             try
             {
-                bll.SaveBill(c, MaNV, int.Parse(txtSumMoney.Text), proList);
+                bll.SaveBill(c, MaNV, int.Parse(rule.partToInt( txtSumMoney.Text)), proList);
                 //
                 DisplayNotify("Lưu thành công", 1);
                
             }
             catch (Exception ex)
             {
-                check = 1;
-                DisplayNotify("Bị lỗi trong quá trình lưu dữ liệu" + ex.Message, -1);
+                
+                DisplayNotify("Bị lỗi trong quá trình lưu dữ liệu" + ex.Message, -1);return;
             }
 
-            if (check == 0)
+             
                 try
                 {
                     dgvProduct.DataSource = bll.GetAllProduct();
@@ -419,6 +447,21 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             //txtCustomerId.Text = cellMaKH.Value.ToString();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadWhenInit();
+        }
 
+        private void txtDouble_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

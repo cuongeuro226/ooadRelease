@@ -11,8 +11,7 @@ namespace BLL.Sales
 {
     public class ReportSalesBLL
     {
-        BillDAL dal = new BillDAL();
-        AddBillBLL addBillBLL = new AddBillBLL();
+        ReportSalesDAL dal = new ReportSalesDAL();// AddBillBLL addBillBLL = new AddBillBLL();
         public List<Bill> GetAllBill(){
             try
             {
@@ -22,8 +21,19 @@ namespace BLL.Sales
         }
         public DataTable GetBillDetail(string billId){
             try
-            {
-                return addBillBLL.GetBillDetail(billId);
+            {                                                                                                                                   
+                List<BillDetail> productList = dal.GetBillDetail(billId);
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TenSanPham");
+                dt.Columns.Add("SoLuong");
+                dt.Columns.Add("DonGiaBan");
+                dt.Columns.Add("ThanhTien");
+                foreach (BillDetail b in productList)
+                {
+                    int toCash = b.Amount * b.Price;
+                    dt.Rows.Add(new string[] { b.ProductName, b.Amount.ToString(), b.Price.ToString(), toCash.ToString() });
+                }
+                return dt;
             }
             catch (Exception ex) { throw ex; }
         }
@@ -38,8 +48,8 @@ namespace BLL.Sales
             }
             catch (Exception ex) { throw ex; }
         }
-        //Lấy danh sách hóa đơn theo Tên Hàng
-
+ 
+        
         #region comment
         //public List<Bill> GetBillByProductName(string productName)
         //{

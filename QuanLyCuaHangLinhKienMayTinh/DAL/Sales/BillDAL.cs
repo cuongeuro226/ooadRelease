@@ -22,17 +22,18 @@ namespace DAL.Sales
         //proList: Danh sách mã sản phẩm và số lượng tương ứng của một hóa đơn id= billId
         public int AddBill(Bill data, Customer c, string idcusnew)
         {
-            SqlConnection con = new SqlConnection(Constants.ConnectionString);
-            con.Open();
-            SqlTransaction tran = con.BeginTransaction();
             try {
-                Customer cc = GetCustomerByID(c.CustomerId);
-                int p0 = 1;
-                if (cc.Equals(c) == false)
-                {
-                    data.CustomerId = idcusnew;
-                    SqlParameter[] para0 =
-                   {
+                SqlConnection con = new SqlConnection(Constants.ConnectionString);
+                con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+                try {
+                    Customer cc = GetCustomerByID(c.CustomerId);
+                    int p0 = 1;
+                    if (cc.Equals(c) == false)
+                    {
+                        data.CustomerId = idcusnew;
+                        SqlParameter[] para0 =
+                       {
                     new SqlParameter("@MaKH",idcusnew),
                     new SqlParameter("@TenKH",c.CustomerName),
                     new SqlParameter("@DiaChi",c.Address),
@@ -40,48 +41,59 @@ namespace DAL.Sales
                     new SqlParameter("@CMND",c.IdNumber),
                     new SqlParameter("@Email",""),
                     };
-                    //save cus
-                    // p0 = SqlQuery.writeSQL("insert into KHACHHANG VALUES (@MaKH, @TenKH, @DiaChi, @SoDT, @CMND,@Email)", para0);
-                     p0=  SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into KHACHHANG VALUES (@MaKH, @TenKH, @DiaChi, @SoDT, @CMND,@Email)", para0);
-                }
+                        //save cus
+                        // p0 = SqlQuery.writeSQL("insert into KHACHHANG VALUES (@MaKH, @TenKH, @DiaChi, @SoDT, @CMND,@Email)", para0);
+                        p0 = SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into KHACHHANG VALUES (@MaKH, @TenKH, @DiaChi, @SoDT, @CMND,@Email)", para0);
+                    }
 
 
-                SqlParameter[] para1 =
-                    {
+                    SqlParameter[] para1 =
+                        {
                     new SqlParameter("@MaHD",data.BillId),
                     new SqlParameter("@NgayHD",data.BillDate.ToString()),
                     new SqlParameter("@MaKH",data.CustomerId),
                     new SqlParameter("@MaNV",data.StaffId),
                     new SqlParameter("@ThanhTien",data.Sum),
                 };
-                //int p1 = SqlQuery.writeSQL("insert into HOADON VALUES (@MaHD, @NgayHD, @MaKH, @MaNV, @ThanhTien)", para1);
-                int p1= SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into HOADON VALUES (@MaHD, @NgayHD, @MaKH, @MaNV, @ThanhTien)", para1);
-                int p2 = 0, p3 = 0;
-                for (int i = 0; i < data.ProductList.Count; i++)
-                {
-                    SqlParameter[] listpara ={
+                    //int p1 = SqlQuery.writeSQL("insert into HOADON VALUES (@MaHD, @NgayHD, @MaKH, @MaNV, @ThanhTien)", para1);
+                    int p1 = SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into HOADON VALUES (@MaHD, @NgayHD, @MaKH, @MaNV, @ThanhTien)", para1);
+                    int p2 = 0, p3 = 0;
+                    for (int i = 0; i < data.ProductList.Count; i++)
+                    {
+                        SqlParameter[] listpara ={
                             new SqlParameter("@MaHD", data.BillId),
                             new SqlParameter("@MaSP",data.ProductList[i].ProductId),
                             new SqlParameter("@SL", data.ProductList[i].Amount),
 
 
-                   };
-                    //string aaa = "insert into CHITIETHOADON VALUES ('"+billId+"','"+proList[i].proId+"'," + proList[i].num + ")";
-                    //SqlQuery.writeSQL(aaa);
-                   // p2 = SqlQuery.writeSQL("insert into CHITIETHOADON VALUES (@MaHD,@MaSP,@SL)", listpara);
-                   p2= SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into CHITIETHOADON VALUES (@MaHD,@MaSP,@SL)", listpara);
-                    //p3 = SqlQuery.writeSQL("update SANPHAM set SoLuong=SoLuong-@SL where MaSanPham=@MaSP", listpara);
-                   p3= SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "update SANPHAM set SoLuong=SoLuong-@SL where MaSanPham=@MaSP", listpara);
+                             };
+                        SqlParameter[] listpara11 ={
+                            new SqlParameter("@MaSP",data.ProductList[i].ProductId),
+                            new SqlParameter("@SL", data.ProductList[i].Amount),
+
+
+                             };
+                        //string aaa = "insert into CHITIETHOADON VALUES ('"+billId+"','"+proList[i].proId+"'," + proList[i].num + ")";
+                        //SqlQuery.writeSQL(aaa);
+                        // p2 = SqlQuery.writeSQL("insert into CHITIETHOADON VALUES (@MaHD,@MaSP,@SL)", listpara);
+                        p2 = SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "insert into CHITIETHOADON VALUES (@MaHD,@MaSP,@SL)", listpara);
+                        //p3 = SqlQuery.writeSQL("update SANPHAM set SoLuong=SoLuong-@SL where MaSanPham=@MaSP", listpara);
+                        p3 = SqlHelper.ExecuteNonQuery(tran, CommandType.Text, "update SANPHAM set SoLuong=SoLuong-@SL where MaSanPham=@MaSP", listpara11);
+                    }
+
+                    tran.Commit();
+
+                    return p0 * p1 * p2 * p3;
                 }
-                
-                tran.Commit();
-                
-                return p0 * p1 * p2 * p3;
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    throw ex;
+                }
             }
             catch(Exception ex)
             {
-                tran.Rollback();
-                throw ex;
+                throw new Exception("Lỗi kết nối CSDL");
             }
         }
         

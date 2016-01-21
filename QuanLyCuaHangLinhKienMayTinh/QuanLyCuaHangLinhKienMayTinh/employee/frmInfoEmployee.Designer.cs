@@ -75,8 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
-            this.btnPrint = new DevComponents.DotNetBar.ButtonX();
-            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chkConfigEmployee = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -88,6 +86,7 @@
             this.chkHouseWare = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.lblNotify = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.picTop = new System.Windows.Forms.PictureBox();
@@ -149,8 +148,6 @@
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.btnUpdate);
-            this.panel6.Controls.Add(this.btnPrint);
-            this.panel6.Controls.Add(this.btnExit);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 34);
             this.panel6.Name = "panel6";
@@ -596,6 +593,7 @@
             this.txtPhone.TabIndex = 4;
             this.txtPhone.Tag = "lblPhone";
             this.txtPhone.TextChanged += new System.EventHandler(this.ControlTexxtbox_change);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             // 
             // label4
             // 
@@ -618,6 +616,7 @@
             this.txtNumberID.TabIndex = 3;
             this.txtNumberID.Tag = "lblNumberID";
             this.txtNumberID.TextChanged += new System.EventHandler(this.ControlTexxtbox_change);
+            this.txtNumberID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDouble_KeyPress);
             // 
             // label3
             // 
@@ -668,37 +667,13 @@
             this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnUpdate.Location = new System.Drawing.Point(272, 255);
+            this.btnUpdate.Location = new System.Drawing.Point(347, 263);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint.Location = new System.Drawing.Point(368, 255);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnPrint.TabIndex = 12;
-            this.btnPrint.Text = "In";
-            // 
-            // btnExit
-            // 
-            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(469, 255);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "Thoát";
             // 
             // panel2
             // 
@@ -716,6 +691,7 @@
             // 
             // chkConfigEmployee
             // 
+            this.chkConfigEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkConfigEmployee.AutoSize = true;
             this.chkConfigEmployee.Enabled = false;
             this.chkConfigEmployee.Location = new System.Drawing.Point(15, 169);
@@ -760,6 +736,7 @@
             // 
             // chkReport
             // 
+            this.chkReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkReport.AutoSize = true;
             this.chkReport.Enabled = false;
             this.chkReport.Location = new System.Drawing.Point(14, 138);
@@ -771,6 +748,7 @@
             // 
             // chkSale
             // 
+            this.chkSale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkSale.AutoSize = true;
             this.chkSale.Enabled = false;
             this.chkSale.Location = new System.Drawing.Point(15, 47);
@@ -782,6 +760,7 @@
             // 
             // chkguarentee
             // 
+            this.chkguarentee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkguarentee.AutoSize = true;
             this.chkguarentee.Enabled = false;
             this.chkguarentee.Location = new System.Drawing.Point(15, 109);
@@ -793,6 +772,7 @@
             // 
             // chkHouseWare
             // 
+            this.chkHouseWare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkHouseWare.AutoSize = true;
             this.chkHouseWare.Enabled = false;
             this.chkHouseWare.Location = new System.Drawing.Point(15, 76);
@@ -814,6 +794,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnRefresh);
             this.panel5.Controls.Add(this.lblNotify);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.picTop);
@@ -822,6 +803,18 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(803, 34);
             this.panel5.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRefresh.Location = new System.Drawing.Point(721, 5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "làm tươi";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblNotify
             // 
@@ -895,8 +888,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private DevComponents.DotNetBar.ButtonX btnUpdate;
-        private DevComponents.DotNetBar.ButtonX btnPrint;
-        private DevComponents.DotNetBar.ButtonX btnExit;
         private System.Windows.Forms.PictureBox picCenter;
         private System.Windows.Forms.PictureBox picTop;
         private System.Windows.Forms.Label label22;
@@ -952,5 +943,6 @@
         private System.Windows.Forms.CheckBox chkSale;
         private System.Windows.Forms.CheckBox chkguarentee;
         private System.Windows.Forms.CheckBox chkHouseWare;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

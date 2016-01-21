@@ -71,6 +71,39 @@ namespace CommonLayer
 
             return false;
         }
+        public static string parrtToMonney(string input)
+        {
+            input = input + " ";
+            while(lengh1(input)>3)
+            {
+                for(int i= lengh1(input); i>=0; i--)
+                {
+                    if ((lengh1(input) - i) % 3 == 0 && (lengh1(input) - i)!=0)
+                    {
+                        input = input.Insert(i, " ");
+                        break;
+                    }
+                }
+            }
+            return input;
+        }
+
+        public static string partToInt(string input)
+        {
+            input = input.Replace(" ", "");
+            return input;
+        }
+        public static int lengh1(string input)
+        {
+            for(int i=0; i<input.Length; i++)
+            {
+                if(input[i]==' ')
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
 
     }
 

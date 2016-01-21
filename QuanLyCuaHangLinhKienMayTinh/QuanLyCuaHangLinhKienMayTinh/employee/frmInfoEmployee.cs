@@ -32,14 +32,21 @@ namespace QuanLyCuaHangLinhKienMayTinh
 
         private void frmInfoEmployee_Load(object sender, EventArgs e)
         {
-           
+
             // combobox
-            cboPosition.DataSource = infoEmployeeBLL.GetListPosition();
-            cboPosition.SelectedIndex = -1;
-            cboPosition.DisplayMember = "PositionName";
+            try {
+                cboPosition.DataSource = infoEmployeeBLL.GetListPosition();
+            }
+            catch(Exception ex)
+            {
+                DisplayNotify("Lỗi load dữ liệu lên combobox, mã lỗi: " + ex.Message,-1);
+            }
+                cboPosition.SelectedIndex = -1;
+                cboPosition.DisplayMember = "PositionName";
+
+                //
+                ReadInfoEmployeeFromData();
             
-            //
-            ReadInfoEmployeeFromData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -62,13 +69,13 @@ namespace QuanLyCuaHangLinhKienMayTinh
                     
                     infoEmployeeBLL.UpdateEmployee(txtEmployeeID.Text, txtEmployeeName.Text, cboSex.Text, txtNumberID.Text, txtPhone.Text, dtmBirthDay.Value.ToString(), txtAddress.Text,
                                 txtPlaceBrith.Text, txtAge.Text, macv, txtSalary.Text, dtmDayWorking.Value.ToString(), txtPassword.Text, cboStatus.Text, mem);
-                    DisplayNotify("Cập nhật thành công", 1);
+                    DisplayNotify("Cập nhật thành công, đăng xuất và đăng nhập lại để thấy sự thay đổi", 1);
 
 
                 }
-                catch
+                catch(Exception ex)
                 {
-                    DisplayNotify("Lỗi ghi dữ liệu xuống CSDL", -1);
+                    DisplayNotify("Lỗi ghi dữ liệu xuống CSDL, mã lỗi: " + ex.Message, -1);
                 }
             }
             else
@@ -290,16 +297,16 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch (Exception ex)
             {
-                DisplayNotify("Lỗi không đọc được chi tiết nhân viên từ csdl" + ex.Message, -1);
+                DisplayNotify("Lỗi không đọc được chi tiết nhân viên từ csdl, mã lỗi: " + ex.Message, -1);
             }
 
             try
             {
                 setChekbox(infoEmployeeBLL.GetFuntionByPositionID(PositionID));
             }
-            catch (Exception ex1)
+            catch (Exception ex)
             {
-                DisplayNotify("Lỗi không đọc được chi tiết nhân viên từ csdl" + ex1.Message, -1);
+                DisplayNotify("Lỗi không đọc được chi tiết nhân viên từ csdl, mã lỗi: " + ex.Message, -1);
             }
         }
 
@@ -330,6 +337,36 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 chkConfigEmployee.Checked = true;
             else
                 chkConfigEmployee.Checked = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // combobox
+            try
+            {
+                cboPosition.DataSource = infoEmployeeBLL.GetListPosition();
+            }
+            catch (Exception ex)
+            {
+                DisplayNotify("Lỗi load dữ liệu lên combobox, mã lỗi: " + ex.Message, -1);
+            }
+            cboPosition.SelectedIndex = -1;
+            cboPosition.DisplayMember = "PositionName";
+
+            //
+            ReadInfoEmployeeFromData();
+        }
+
+        private void txtDouble_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

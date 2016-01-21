@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL.Sales;
 using DevComponents.DotNetBar.Controls;
 using DTO.Sales;
+using CommonLayer;
 
 namespace QuanLyCuaHangLinhKienMayTinh.Sales
 {
@@ -29,6 +30,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             {
                 dgvXListBill.DataSource = bll.GetBillByDate(dtpStartDate.Value, dtpEndDate.Value);
                 DisplayNotify("Load thành công hóa đơn và doanh thu trong ngày hôm nay", 1);
+                SetIncome();
             }
             catch(Exception ex)
             {
@@ -90,7 +92,9 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
                 }
                 lblFrom.Text = dtpStartDate.Value.Day + "/" + dtpStartDate.Value.Month + "/" + dtpStartDate.Value.Year;
                 lblTo.Text = dtpEndDate.Value.Day + "/" + dtpEndDate.Value.Month + "/" + dtpEndDate.Value.Year;
-                txtIncome.Text =partTomoney( sum.ToString());
+                txtIncome.Text =rule.parrtToMonney(sum.ToString()); 
+                 
+                
             }
             catch(Exception ex)
             {
@@ -98,27 +102,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             }
         }
 
-        public string partTomoney(string output)
-        {
-            try {
-                //string output = input;
-                int indexend = output.Length - 1;
-                for (int i = output.Length; i > 0; i--)
-                {
-                    if (indexend - i == 3)
-                    {
-                        indexend = i;
-                        output = output.Insert(i + 1, " ");
-                    }
-                }
-                return output;
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-
-        }
+         
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {

@@ -36,14 +36,15 @@ namespace DAL
                          string ngaysinh, string diachi, string noisinh, string tuoi, string chucvu,
                          string luong, string ngayVaoLam, MemoryStream anhThe,string pass, string trangthai, List<string> arr)
         {
-            SqlConnection con = new SqlConnection(Constants.ConnectionString);
-            con.Open();
-            SqlTransaction tran = con.BeginTransaction();
-            try
-            {
-                
-                SqlParameter[] para1 =
+            try {
+                SqlConnection con = new SqlConnection(Constants.ConnectionString);
+                con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+                try
                 {
+
+                    SqlParameter[] para1 =
+                    {
                     new SqlParameter("@MaNV", manv),
                     new SqlParameter("@Ten", ten),
                     new SqlParameter("@GioiTinh", gioitinh),
@@ -61,8 +62,8 @@ namespace DAL
                     new SqlParameter("@Password", pass),
                     new SqlParameter("@MaCN",manv)
                 };
-                SqlParameter[] para2 =
-                {
+                    SqlParameter[] para2 =
+                    {
                     new SqlParameter ("@MaChucNang",manv),
                     new SqlParameter ("@BanHang",arr[0]),
                     new SqlParameter ("@Kho",arr[1]),
@@ -72,35 +73,39 @@ namespace DAL
                 };
 
 
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "CreateFuntion", para2);
-                SqlHelper.ExecuteNonQuery(tran,
-                    CommandType.StoredProcedure,
-                    "InsertEmployee", para1);
-                tran.Commit();
-                con.Close();
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "CreateFuntion", para2);
+                    SqlHelper.ExecuteNonQuery(tran,
+                        CommandType.StoredProcedure,
+                        "InsertEmployee", para1);
+                    tran.Commit();
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    tran.Rollback();
+                    throw e;
+                }
             }
-            catch (Exception e)
-            {
-                tran.Rollback();
-                throw e;
-            }
+            catch(Exception e)
+            { throw new Exception("Lỗi tạo kết nối với CSDL"); }
 
         }
         public void UpdateEmployee(string manv, string ten, string gioitinh, string cmnd, string sdt,
                          string ngaysinh, string diachi, string noisinh, string tuoi, string chucvu,
                          string luong, string ngayVaoLam, MemoryStream anhThe, string pass, string trangthai, List<string> arr)
         {
-            SqlConnection con = new SqlConnection(Constants.ConnectionString);
-            con.Open();
-            SqlTransaction tran = con.BeginTransaction();
-            try
-            {
-                
-
-                SqlParameter[] para1 =
+            try {
+                SqlConnection con = new SqlConnection(Constants.ConnectionString);
+                con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+                try
                 {
+
+
+                    SqlParameter[] para1 =
+                    {
 
                     new SqlParameter("@MaNV", manv),
                     new SqlParameter("@Ten", ten),
@@ -119,8 +124,8 @@ namespace DAL
                     new SqlParameter("@Password", pass),
                     new SqlParameter("@MaCN",manv)
                 };
-                SqlParameter[] para2 =
-               {
+                    SqlParameter[] para2 =
+                   {
                     new SqlParameter ("@MaChucNang",manv),
                     new SqlParameter ("@BanHang",arr[0]),
                     new SqlParameter ("@Kho",arr[1]),
@@ -130,19 +135,24 @@ namespace DAL
                 };
 
 
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "UpdateFuntion", para2);
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "UpdateEmployee", para1);
-                tran.Commit();
-                con.Close();
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "UpdateFuntion", para2);
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "UpdateEmployee", para1);
+                    tran.Commit();
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    tran.Rollback();
+                    throw e;
+                }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                tran.Rollback();
-                throw e;
+                throw new Exception("Lỗi tạo kết nối với CSDL");
             }
         }
         public void DeleteEmployee(string manv,string trangthai)

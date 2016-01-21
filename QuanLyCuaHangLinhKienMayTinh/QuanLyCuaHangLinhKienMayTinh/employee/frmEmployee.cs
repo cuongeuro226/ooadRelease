@@ -18,12 +18,21 @@ namespace QuanLyCuaHangLinhKienMayTinh
     {
         EmployeeBLL employeeBLL = new EmployeeBLL();
         static int SearchIndex = 0;
+        frmMainForm Main;
         public frmEmployee()
         {
             InitializeComponent();
         }
+        public frmEmployee(frmMainForm main,string manv)
+        {
+            Main= new frmMainForm(manv);
+            Main = main;
+             
+            InitializeComponent();
+        }
         private void frmEmployee_Load(object sender, EventArgs e)
         {
+
             // get list position
             try
             {
@@ -33,7 +42,9 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch (Exception ex)
             {
-                 DisplayNotify( "Lỗi đọc danh sách chức vụ!! ",-1);
+                
+                 DisplayNotify( "Lỗi đọc danh sách chức vụ!!, mã lỗi: "+ex.Message,-1);
+                return;
             }
             //load dgview
             try
@@ -49,7 +60,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
             }
             catch(Exception ex)
             {
-                DisplayNotify("Lỗi đọc danh sách Nhân viên!! ", -1);
+                DisplayNotify("Lỗi đọc danh sách Nhân viên, mã lỗi: " + ex.Message, -1);
             }
 
         }
@@ -67,9 +78,9 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 if (txtImagelink.Text.Length > 0)
                     picImage.BackgroundImage = Image.FromFile(txtImagelink.Text);
             }
-            catch
+            catch(Exception ex)
             {
-                DisplayNotify("Lỗi load ảnh lên ",-1);
+                DisplayNotify("Lỗi load ảnh lên , mã lỗi: " + ex.Message, -1);
             }
 
         }
@@ -129,9 +140,9 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 dgvData.DataSource = employeeBLL.GetAllEmployee();
                 SelectRow(dgvData, KeyToSelect);
             }
-            catch
+            catch(Exception ex)
             {
-                DisplayNotify("Lỗi xóa trong CSDL", -1);
+                DisplayNotify("Lỗi xóa trong CSDL, mã lỗi: " + ex.Message, -1);
             }
             
             
@@ -159,14 +170,16 @@ namespace QuanLyCuaHangLinhKienMayTinh
                         SelectRow(dgvData, KeyToSelect);
 
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        DisplayNotify("Lỗi ghi dữ liệu xuống CSDL", -1);
+                        
+                        DisplayNotify("Lỗi ghi dữ liệu xuống CSDL, mã lỗi: " + ex.Message, -1);
+                        return;
                     }
                 }
                 catch(Exception ex)
                 {
-                    DisplayNotify("Lỗi load ảnh", -1);
+                    DisplayNotify("Lỗi load ảnh, mã lỗi: " + ex.Message, -1);
                 }
                 
             }
@@ -182,10 +195,19 @@ namespace QuanLyCuaHangLinhKienMayTinh
         {
             if (CheckBeforeSave(0) == true)
             {
+                string macv = "";
                 //get position number
-                DTO.position c = (DTO.position)cboPosition.SelectedItem;
-                string macv = c.PositionNumber.ToString();
-                
+                try
+                {
+                    DTO.position c = (DTO.position)cboPosition.SelectedItem;
+                     macv = c.PositionNumber.ToString();
+                }
+                catch(Exception ex)
+                {
+
+                    DisplayNotify("Lỗi không thể lấy dối tượng từ combobox để lưu dữ liệu, mã lỗi: " + ex.Message, -1);
+                    return;
+                }
                 //image
                 MemoryStream mem = new MemoryStream();
                 if (txtImagelink.Text.Length == 0)
@@ -199,10 +221,11 @@ namespace QuanLyCuaHangLinhKienMayTinh
                         Image ima = Image.FromFile(txtImagelink.Text);
                         ima.Save(mem, ImageFormat.Jpeg);
                     }
-                    catch
+                    catch(Exception ex)
                     {
                         Image ima = picImage.BackgroundImage;
                         ima.Save(mem, ImageFormat.Jpeg);
+                        DisplayNotify("Lỗi khi lưu ảnh vào csdl, mã lỗi: " + ex.Message, -1);
                     }
                 }
                 try
@@ -215,9 +238,9 @@ namespace QuanLyCuaHangLinhKienMayTinh
                     SelectRow(dgvData, KeyToSelect);
 
                 }
-                catch
+                catch(Exception ex)
                 {
-                    DisplayNotify("Lỗi ghi dữ liệu xuống CSDL", -1);
+                    DisplayNotify("Lỗi ghi dữ liệu xuống CSDL, mã lỗi: " + ex.Message, -1);
                 }
             }
             else
@@ -469,7 +492,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
                     Image ima = Image.FromStream(mem, true);
                     picImage.BackgroundImage = ima;
                 }
-                catch (Exception ex) { };
+                catch (Exception ex) { DisplayNotify("Lỗi không thể load dữ ảnh, mã lỗi: " + ex.Message,-1); };
                 
                 //btn
                 btnSave.Enabled = false;
@@ -639,8 +662,15 @@ namespace QuanLyCuaHangLinhKienMayTinh
 
         private void btnAddPosition_Click(object sender, EventArgs e)
         {
-            frmPosition f = new frmPosition();
-            f.ShowDialog();
+            
+                //frmPosition f = new frmPosition();
+                //f.ShowDialog();
+                Form s = new frmPosition();
+                s.TopLevel = false;
+                s.Visible = true;
+                s.Location = new Point(0, 0);
+                Main.AddForm(s, "Thêm vị trí");
+           
         }
 
         private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)
@@ -658,6 +688,52 @@ namespace QuanLyCuaHangLinhKienMayTinh
             catch(Exception ex)
             {
                 DisplayNotify("Lỗi đọc danh sách đề nghị cho mỗi vị trí, bạn có thể tự nhập "+ex.Message,-1);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // get list position
+            try
+            {
+                cboPosition.DataSource = employeeBLL.GetListPosition();
+                cboPosition.DisplayMember = "PositionName";
+                cboPosition.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+
+                DisplayNotify("Lỗi đọc danh sách chức vụ!!, mã lỗi: " + ex.Message, -1);
+                return;
+            }
+            //load dgview
+            try
+            {
+
+                dgvData.DataSource = employeeBLL.GetAllEmployee();
+                //Console.WriteLine("asas"+ dgvData.DataBindings.ToString());
+                dgvData.ClearSelection();
+                ClearTextbox();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                DisplayNotify("Lỗi đọc danh sách Nhân viên, mã lỗi: " + ex.Message, -1);
+            }
+
+        }
+
+        private void txtDouble_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
             }
         }
     }

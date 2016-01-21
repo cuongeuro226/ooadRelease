@@ -88,14 +88,15 @@ namespace DAL
         }
         public void SavePosition(string PositionID, string PositionName, string Salary, string ControlID, List<string>arr)
         {
-            SqlConnection con = new SqlConnection(Constants.ConnectionString);
-            con.Open();
-            SqlTransaction tran = con.BeginTransaction();
-            try
-            {
-                
-                SqlParameter[] para1 =
+            try {
+                SqlConnection con = new SqlConnection(Constants.ConnectionString);
+                con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+                try
                 {
+
+                    SqlParameter[] para1 =
+                    {
                     new SqlParameter ("@MaChucNang",ControlID),
                     new SqlParameter ("@BanHang",arr[0]),
                     new SqlParameter ("@Kho",arr[1]),
@@ -103,9 +104,9 @@ namespace DAL
                     new SqlParameter ("@ThongKe",arr[3]),
                     new SqlParameter ("@ThietLap",arr[4]),
                 };
-                
-                SqlParameter[] para2 =
-                {
+
+                    SqlParameter[] para2 =
+                    {
                     new SqlParameter ("@MaChucVu",PositionID),
                     new SqlParameter ("@TenChucVu",PositionName),
                     new SqlParameter ("@Luong",Salary),
@@ -114,40 +115,45 @@ namespace DAL
 
 
 
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "CreateFuntion", para1);
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "SavePosition",para2);
-                tran.Commit();
-                con.Close();
-            }
-            catch (Exception e)
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "CreateFuntion", para1);
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "SavePosition", para2);
+                    tran.Commit();
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    tran.Rollback();
+                    throw e;
+                }
+            }catch(Exception ex)
             {
-                tran.Rollback();
-                throw e;
+                throw new Exception("Lỗi tạo kết nối CSDL");
             }
         }
 
         public void UpdatePosition(string PositionID, string PositionName, string Salary, string ControlID, string IsDelete,List<string>arr)
         {
-            SqlConnection con = new SqlConnection(Constants.ConnectionString);
-            con.Open();
-            SqlTransaction tran = con.BeginTransaction();
-            try
-            {
-                
-                SqlParameter[] para1 =
+            try {
+                SqlConnection con = new SqlConnection(Constants.ConnectionString);
+                con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+                try
                 {
+
+                    SqlParameter[] para1 =
+                    {
                     new SqlParameter ("@MaChucVu",PositionID),
                     new SqlParameter ("@TenChucVu",PositionName),
                     new SqlParameter ("@Luong",Salary),
                     new SqlParameter ("@MaCN",ControlID),
                     new SqlParameter("@DaXoa",IsDelete),
                 };
-                SqlParameter[] para2 =
-                {
+                    SqlParameter[] para2 =
+                    {
                     new SqlParameter ("@MaChucNang",ControlID),
                     new SqlParameter ("@BanHang",arr[0]),
                     new SqlParameter ("@Kho",arr[1]),
@@ -157,20 +163,25 @@ namespace DAL
                 };
 
 
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "UpdateFuntion", para2);
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "UpdateFuntion", para2);
 
-                SqlHelper.ExecuteNonQuery(tran,
-                   CommandType.StoredProcedure,
-                   "UpdatePosition",para1);
-                tran.Commit();
-                con.Close();
+                    SqlHelper.ExecuteNonQuery(tran,
+                       CommandType.StoredProcedure,
+                       "UpdatePosition", para1);
+                    tran.Commit();
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    tran.Rollback();
+                    throw e;
+                }
             }
-            catch (Exception e)
+            catch(Exception ex)
             {
-                tran.Rollback();
-                throw e;
+                throw new Exception("Lỗi tạo kết nối CSDL");
             }
         }
 

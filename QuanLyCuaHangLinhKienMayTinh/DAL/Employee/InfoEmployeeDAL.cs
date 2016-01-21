@@ -91,7 +91,7 @@ namespace DAL
                     new SqlParameter("@ChucVu", chucvu),
                     new SqlParameter("@Luong", luong),
                     new SqlParameter("@NgayVaoLam", ngayVaoLam),
-                    new SqlParameter("@AnhThe", anhThe),
+                    new SqlParameter("@AnhThe", anhThe.ToArray()),
                     new SqlParameter("@TrangThai", trangthai),
                     new SqlParameter("@Password", pass),
                     new SqlParameter("@MaCN",manv)

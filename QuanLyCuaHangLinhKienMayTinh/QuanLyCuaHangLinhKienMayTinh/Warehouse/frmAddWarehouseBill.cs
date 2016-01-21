@@ -150,7 +150,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                DisplayNotify("Lỗi không thể thêm phiếu nhập kho, mã lỗi:" + ex.Message, -1);
             }
         }
 

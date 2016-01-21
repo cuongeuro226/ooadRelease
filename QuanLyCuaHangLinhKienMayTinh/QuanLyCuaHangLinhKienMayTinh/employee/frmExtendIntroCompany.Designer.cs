@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExtendIntroCompany));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,26 +51,6 @@
             this.panel1.Size = new System.Drawing.Size(975, 100);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 468);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(975, 100);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 100);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(975, 368);
-            this.panel3.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -80,8 +60,18 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(745, 68);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Công ty cổ phần tin học LTN";
+            this.label1.Text = "Công ty cổ phần tin học ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 468);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(975, 100);
+            this.panel2.TabIndex = 1;
             // 
             // label4
             // 
@@ -103,16 +93,15 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Địa chỉ: số 8 , đường số 8 , Phường Linh Trung , Quận Thủ Đức, TP HCM";
             // 
-            // label2
+            // panel3
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(267, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(437, 85);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "     Chuyên cung cấp  các thiết bị văn phòng - máy tính -  máy in -  mực in - lin" +
-    "h kiện máy tính - cpu - usb  ...";
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 100);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(975, 368);
+            this.panel3.TabIndex = 1;
             // 
             // label5
             // 
@@ -124,7 +113,18 @@
             this.label5.TabIndex = 10;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // gioithieucongty
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(267, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(437, 85);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "     Chuyên cung cấp  các thiết bị văn phòng - máy tính -  máy in -  mực in - lin" +
+    "h kiện máy tính - cpu - usb  ...";
+            // 
+            // frmExtendIntroCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,7 +134,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(976, 327);
-            this.Name = "gioithieucongty";
+            this.Name = "frmExtendIntroCompany";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
