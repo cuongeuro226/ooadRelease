@@ -16,17 +16,65 @@ namespace QuanLyCuaHangLinhKienMayTinh
 {
     public partial class frmMainForm : Form
     {
-        public frmMainForm(string manv)
+
+        public frmMainForm(string manv, List<string>_arr )
         {
             MaNV = manv;
+            arr = _arr;
             load();
+            setFuntion();
         }
         private String MaNV = "";
+        private List<string> arr;
         // load employee to picterbox
 
         public frmMainForm()
         {
             load();
+        }
+
+        public void setFuntion()
+        {
+            if (arr[0].ToString() == "1")
+            {
+                stbItembanhang.Visible = true;
+            }
+            else
+            {
+                stbItembanhang.Visible = false;
+            }
+            if (arr[1].ToString() == "1")
+            {
+                stbItemkho.Visible = true;
+            }
+            else
+            {
+                stbItemkho.Visible = false;
+            }
+            if (arr[2].ToString() == "1")
+            {
+                stbItembaohanh.Visible = true;
+            }
+            else
+            {
+                stbItembaohanh.Visible = false;
+            }
+            if (arr[3].ToString() == "1")
+            {
+                stbItemthongke.Visible = true;
+            }
+            else
+            {
+                stbItemthongke.Visible = false;
+            }
+            if (arr[4].ToString() == "1")
+            {
+                btnSetting.Visible = true;
+            }
+            else
+            {
+                btnSetting.Visible = false;
+            }
         }
 
         public void load()
@@ -63,7 +111,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("dda dang xuat");
+            this.Close();
         }
         private void btnFuntion_click(object sender, EventArgs e)
         {
@@ -164,12 +212,17 @@ namespace QuanLyCuaHangLinhKienMayTinh
                     }
                 case "Thống kê sản phẩm":
                     {
-                        //Form s = new Warehouse.frmWarehouseBill();
+                        Warehouse.ProductsReport rep = new ProductsReport();
+                        rep.CreateDocument();
+                        rep.ShowPreviewDialog( );
+                        //frmProductsReport s = new Warehouse.frmProductsReport();
+                        //s.documentViewer1.DocumentSource = rep;
+                        //s.ShowDialog();
                         //s.TopLevel = false;
-                        //s.Visible = true;
-                        //s.Location = new Point(0, 0);
+                        //s.Visible = true;s.Location = new Point(0, 0);
                         //AddForm(s, ((DevComponents.DotNetBar.ButtonX)sender).Text);
-                        break;}
+                        break;
+                    }
                 case "Tiếp nhận bảo hành":
                     {
                         Form s = new Guarantee.frmPhieuTiepNhanBaoHanh(MaNV);
@@ -190,11 +243,11 @@ namespace QuanLyCuaHangLinhKienMayTinh
                     }
                 case "Thống kê bảo hành":
                     {
-                        //Form s = new Warehouse.frmWarehouseBill();
-                        //s.TopLevel = false;
-                        //s.Visible = true;
-                        //s.Location = new Point(0, 0);
-                        //AddForm(s, ((DevComponents.DotNetBar.ButtonX)sender).Text);
+                        Form s = new Guarantee.frmThongKeBaoHanh();
+                        s.TopLevel = false;
+                        s.Visible = true;
+                        s.Location = new Point(0, 0);
+                        AddForm(s, ((DevComponents.DotNetBar.ButtonX)sender).Text);
                         break;
                     }
                 case "Chỉnh sửa thông tin cá nhân":

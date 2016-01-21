@@ -39,7 +39,7 @@ namespace DTO.Warehouse
             get { return _maSanPham; }
             set
             {
-                if (value.Length < 10)
+                if (value.Length <= 10)
                     _maSanPham = value;
             }
         }

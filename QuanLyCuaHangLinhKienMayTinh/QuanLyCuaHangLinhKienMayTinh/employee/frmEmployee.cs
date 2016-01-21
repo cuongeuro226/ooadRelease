@@ -25,7 +25,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
         }
         public frmEmployee(frmMainForm main,string manv)
         {
-            Main= new frmMainForm(manv);
+            
             Main = main;
              
             InitializeComponent();

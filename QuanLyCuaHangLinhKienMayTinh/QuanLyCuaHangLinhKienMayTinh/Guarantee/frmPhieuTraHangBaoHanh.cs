@@ -19,6 +19,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
         string maNV = "";
         BllPhieuTraHangBaoHanh bllPTHBH;
         private BllPhieuTiepNhanBaoHanh bllPTNBH;
+        string _maPTHBH = "";
         public frmPhieuTraHangBaoHanh()
         {
             InitAll();
@@ -80,6 +81,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
             List<DtoChiTietPhieuTraHangBaoHanh> listCTPTHBH = new List<DtoChiTietPhieuTraHangBaoHanh>();
 
             dtoPTHBH.MaPTHBH = txtMaPTHBH.Text;
+            _maPTHBH = txtMaPTHBH.Text;
             dtoPTHBH.MaNV = maNV;
             dtoPTHBH.MaPTNBH = cbPTNBH.Text.ToString();
             dtoPTHBH.NgayLap = DateTime.Now;
@@ -185,13 +187,21 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            //frmInPhieuTraHangBaoHanh frmInPhieuTraHangBaoHanh = new frmInPhieuTraHangBaoHanh();
-            //frmInPhieuTraHangBaoHanh.MaPTHBH = txtMaPTHBH.Text.ToString();
-            //frmInPhieuTraHangBaoHanh.MaPTNBH = cbPTNBH.Text.ToString();
-            //frmInPhieuTraHangBaoHanh.MaNV = cbMaNV.Text.ToString();
-            //frmInPhieuTraHangBaoHanh.NgayTra = dtpNgayTra.Value.ToString();
-            //frmInPhieuTraHangBaoHanh.ShowDialog();
+            btnLuu.PerformClick();
+            if (_maPTHBH == txtMaPTHBH.Text)
+            {
+                MessageBox.Show("Lưu không thành công!");
+                return;
+            }
+            PrintPhieuTraHangBaoHanh frmInPhieuTraHangBaoHanh = new PrintPhieuTraHangBaoHanh();
+            frmInPhieuTraHangBaoHanh.MaPTHBH = _maPTHBH;
+            frmInPhieuTraHangBaoHanh.MaPTNBH = cbPTNBH.Text.ToString();
+            frmInPhieuTraHangBaoHanh.MaNV = txtMaNV.Text.ToString();
+            frmInPhieuTraHangBaoHanh.NgayTra = dtpNgayTra.Value.ToString();
+            frmInPhieuTraHangBaoHanh.ShowDialog();
+            _maPTHBH = txtMaPTHBH.Text;
         }
+
 
         private void ckbDateTimeSystem_CheckedChanged(object sender, EventArgs e)
         {

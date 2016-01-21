@@ -19,7 +19,7 @@ namespace QuanLyCuaHangLinhKienMayTinh
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
-            //Application.Run(new Guarantee.frmPhieuTiepNhanBaoHanh());
+            //Application.Run(new frmLogin());//Application.Run(new Guarantee.frmPhieuTiepNhanBaoHanh());
             //Application.Run(new sub1());
         }
     }

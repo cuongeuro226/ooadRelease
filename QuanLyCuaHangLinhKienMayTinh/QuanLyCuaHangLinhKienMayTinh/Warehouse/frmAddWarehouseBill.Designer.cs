@@ -50,11 +50,12 @@
             this.SoLuong = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
             this.GhiChu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnKiemTra = new DevComponents.DotNetBar.ButtonX();
+            this.btnIn = new DevComponents.DotNetBar.ButtonX();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotify = new System.Windows.Forms.Label();
             this.timerNotify = new System.Windows.Forms.Timer(this.components);
-            this.btnIn = new DevComponents.DotNetBar.ButtonX();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -327,6 +328,19 @@
             this.btnKiemTra.Text = "Kiểm Tra";
             this.btnKiemTra.Click += new System.EventHandler(this.btnKiemTra_Click);
             // 
+            // btnIn
+            // 
+            this.btnIn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnIn.Location = new System.Drawing.Point(933, 131);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(80, 28);
+            this.btnIn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In";
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // btnThoat
             // 
             this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -342,6 +356,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnRefresh);
             this.panel3.Controls.Add(this.lblNotify);
             this.panel3.Controls.Add(this.labelX2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -363,18 +378,17 @@
             // 
             this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
             // 
-            // btnIn
+            // btnRefresh
             // 
-            this.btnIn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIn.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnIn.Location = new System.Drawing.Point(933, 131);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(80, 28);
-            this.btnIn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnIn.TabIndex = 2;
-            this.btnIn.Text = "In";
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRefresh.Location = new System.Drawing.Point(933, 9);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "làm tươi";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmAddWarehouseBill
             // 
@@ -422,5 +436,6 @@
         private DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu1;
         private DevComponents.DotNetBar.ButtonX btnIn;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -43,23 +43,11 @@
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.btnSetting = new DevComponents.DotNetBar.SuperTabItem();
-            this.stbPanelItemTtcanhan = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnEditMyInfo = new DevComponents.DotNetBar.ButtonX();
-            this.stbItemttcanhan = new DevComponents.DotNetBar.SuperTabItem();
-            this.stbPanelItemThongke = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnOutcomeGuaranteeTM = new DevComponents.DotNetBar.ButtonX();
-            this.btnOutcomeProductTM = new DevComponents.DotNetBar.ButtonX();
-            this.btnOutcomeWarehouseBillTM = new DevComponents.DotNetBar.ButtonX();
-            this.btnOutComeBillTM = new DevComponents.DotNetBar.ButtonX();
-            this.stbItemthongke = new DevComponents.DotNetBar.SuperTabItem();
-            this.stbPanelItembaohanh = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnOutcomeGuarantee = new DevComponents.DotNetBar.ButtonX();
-            this.btnAddGuarentee = new DevComponents.DotNetBar.ButtonX();
-            this.btnReturnGuarentee = new DevComponents.DotNetBar.ButtonX();
-            this.stbItembaohanh = new DevComponents.DotNetBar.SuperTabItem();
+            this.stbPanelItembanhang = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnAđBill = new DevComponents.DotNetBar.ButtonX();
+            this.btnOutComeBill = new DevComponents.DotNetBar.ButtonX();
+            this.stbItembanhang = new DevComponents.DotNetBar.SuperTabItem();
             this.stbPanelItemKho = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.ribWarehouse = new DevComponents.DotNetBar.RibbonBar();
             this.btnOutcomeProduct = new DevComponents.DotNetBar.ButtonX();
@@ -67,11 +55,23 @@
             this.btnWarehouseBill = new DevComponents.DotNetBar.ButtonX();
             this.btnProduct = new DevComponents.DotNetBar.ButtonX();
             this.stbItemkho = new DevComponents.DotNetBar.SuperTabItem();
-            this.stbPanelItembanhang = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnAđBill = new DevComponents.DotNetBar.ButtonX();
-            this.btnOutComeBill = new DevComponents.DotNetBar.ButtonX();
-            this.stbItembanhang = new DevComponents.DotNetBar.SuperTabItem();
+            this.stbPanelItembaohanh = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnOutcomeGuarantee = new DevComponents.DotNetBar.ButtonX();
+            this.btnAddGuarentee = new DevComponents.DotNetBar.ButtonX();
+            this.btnReturnGuarentee = new DevComponents.DotNetBar.ButtonX();
+            this.stbItembaohanh = new DevComponents.DotNetBar.SuperTabItem();
+            this.stbPanelItemThongke = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnOutcomeGuaranteeTM = new DevComponents.DotNetBar.ButtonX();
+            this.btnOutcomeProductTM = new DevComponents.DotNetBar.ButtonX();
+            this.btnOutcomeWarehouseBillTM = new DevComponents.DotNetBar.ButtonX();
+            this.btnOutComeBillTM = new DevComponents.DotNetBar.ButtonX();
+            this.stbItemthongke = new DevComponents.DotNetBar.SuperTabItem();
+            this.stbPanelItemTtcanhan = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnEditMyInfo = new DevComponents.DotNetBar.ButtonX();
+            this.stbItemttcanhan = new DevComponents.DotNetBar.SuperTabItem();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.pnlInfoEmployee = new System.Windows.Forms.Panel();
             this.txtInfoEmployee = new System.Windows.Forms.TextBox();
@@ -98,16 +98,16 @@
             this.ribHome.SuspendLayout();
             this.stbPanelItemthietlap.SuspendLayout();
             this.ribbonBar1.SuspendLayout();
-            this.stbPanelItemTtcanhan.SuspendLayout();
-            this.ribbonBar3.SuspendLayout();
-            this.stbPanelItemThongke.SuspendLayout();
-            this.ribbonBar5.SuspendLayout();
-            this.stbPanelItembaohanh.SuspendLayout();
-            this.ribbonBar4.SuspendLayout();
-            this.stbPanelItemKho.SuspendLayout();
-            this.ribWarehouse.SuspendLayout();
             this.stbPanelItembanhang.SuspendLayout();
             this.ribbonBar2.SuspendLayout();
+            this.stbPanelItemKho.SuspendLayout();
+            this.ribWarehouse.SuspendLayout();
+            this.stbPanelItembaohanh.SuspendLayout();
+            this.ribbonBar4.SuspendLayout();
+            this.stbPanelItemThongke.SuspendLayout();
+            this.ribbonBar5.SuspendLayout();
+            this.stbPanelItemTtcanhan.SuspendLayout();
+            this.ribbonBar3.SuspendLayout();
             this.pnlImage.SuspendLayout();
             this.pnlInfoEmployee.SuspendLayout();
             this.pnlPic.SuspendLayout();
@@ -160,13 +160,13 @@
             this.stbMenu.ControlBox.MenuBox,
             this.stbMenu.ControlBox.CloseBox});
             this.stbMenu.ControlBox.Visible = false;
-            this.stbMenu.Controls.Add(this.stbPanelItemKho);
+            this.stbMenu.Controls.Add(this.stbPanelItemThongke);
+            this.stbMenu.Controls.Add(this.stbPanelItemTtcanhan);
             this.stbMenu.Controls.Add(this.stbPanelItemhome);
             this.stbMenu.Controls.Add(this.stbPanelItemthietlap);
-            this.stbMenu.Controls.Add(this.stbPanelItemTtcanhan);
-            this.stbMenu.Controls.Add(this.stbPanelItemThongke);
-            this.stbMenu.Controls.Add(this.stbPanelItembaohanh);
             this.stbMenu.Controls.Add(this.stbPanelItembanhang);
+            this.stbMenu.Controls.Add(this.stbPanelItemKho);
+            this.stbMenu.Controls.Add(this.stbPanelItembaohanh);
             this.stbMenu.Cursor = System.Windows.Forms.Cursors.Default;
             this.stbMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stbMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -348,178 +348,194 @@
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Text = "Thiết lập hệ thống";
             // 
-            // stbPanelItemTtcanhan
+            // stbPanelItembanhang
             // 
-            this.stbPanelItemTtcanhan.Controls.Add(this.ribbonBar3);
-            this.stbPanelItemTtcanhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stbPanelItemTtcanhan.Location = new System.Drawing.Point(0, 0);
-            this.stbPanelItemTtcanhan.Name = "stbPanelItemTtcanhan";
-            this.stbPanelItemTtcanhan.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
-            this.stbPanelItemTtcanhan.Size = new System.Drawing.Size(782, 148);
-            this.stbPanelItemTtcanhan.TabIndex = 0;
-            this.stbPanelItemTtcanhan.TabItem = this.stbItemttcanhan;
+            this.stbPanelItembanhang.Controls.Add(this.ribbonBar2);
+            this.stbPanelItembanhang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stbPanelItembanhang.Location = new System.Drawing.Point(0, 0);
+            this.stbPanelItembanhang.Name = "stbPanelItembanhang";
+            this.stbPanelItembanhang.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
+            this.stbPanelItembanhang.Size = new System.Drawing.Size(782, 148);
+            this.stbPanelItembanhang.TabIndex = 0;
+            this.stbPanelItembanhang.TabItem = this.stbItembanhang;
             // 
-            // ribbonBar3
+            // ribbonBar2
             // 
-            this.ribbonBar3.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar3.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.AutoOverflowEnabled = true;
             // 
             // 
             // 
-            this.ribbonBar3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar3.ContainerControlProcessDialogKey = true;
-            this.ribbonBar3.Controls.Add(this.btnEditMyInfo);
-            this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonBar3.Location = new System.Drawing.Point(12, 5);
-            this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(758, 138);
-            this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar3.TabIndex = 2;
+            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar3.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Controls.Add(this.btnAđBill);
+            this.ribbonBar2.Controls.Add(this.btnOutComeBill);
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonBar2.Location = new System.Drawing.Point(12, 5);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(758, 138);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar2.TabIndex = 1;
             // 
             // 
             // 
-            this.ribbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnEditMyInfo
-            // 
-            this.btnEditMyInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnEditMyInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditMyInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnEditMyInfo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnEditMyInfo.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.Contacts_icon;
-            this.btnEditMyInfo.Location = new System.Drawing.Point(20, 20);
-            this.btnEditMyInfo.Name = "btnEditMyInfo";
-            this.btnEditMyInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEditMyInfo.Size = new System.Drawing.Size(708, 51);
-            this.btnEditMyInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnEditMyInfo.TabIndex = 1;
-            this.btnEditMyInfo.Text = "Chỉnh sửa thông tin cá nhân";
-            this.btnEditMyInfo.Click += new System.EventHandler(this.btnFuntion_click);
-            // 
-            // stbItemttcanhan
-            // 
-            this.stbItemttcanhan.AttachedControl = this.stbPanelItemTtcanhan;
-            this.stbItemttcanhan.GlobalItem = false;
-            this.stbItemttcanhan.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemttcanhan.Icon")));
-            this.stbItemttcanhan.Name = "stbItemttcanhan";
-            this.stbItemttcanhan.Text = "Thông tin cá nhân";
-            // 
-            // stbPanelItemThongke
-            // 
-            this.stbPanelItemThongke.Controls.Add(this.ribbonBar5);
-            this.stbPanelItemThongke.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stbPanelItemThongke.Location = new System.Drawing.Point(0, 0);
-            this.stbPanelItemThongke.Name = "stbPanelItemThongke";
-            this.stbPanelItemThongke.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
-            this.stbPanelItemThongke.Size = new System.Drawing.Size(782, 148);
-            this.stbPanelItemThongke.TabIndex = 0;
-            this.stbPanelItemThongke.TabItem = this.stbItemthongke;
-            // 
-            // ribbonBar5
-            // 
-            this.ribbonBar5.AutoOverflowEnabled = true;
+            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnAđBill
+            // 
+            this.btnAđBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAđBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAđBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAđBill.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAđBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.File_New_icon;
+            this.btnAđBill.Location = new System.Drawing.Point(20, 21);
+            this.btnAđBill.Name = "btnAđBill";
+            this.btnAđBill.Size = new System.Drawing.Size(191, 51);
+            this.btnAđBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnAđBill.TabIndex = 3;
+            this.btnAđBill.Text = "Tạo mới hóa đơn";
+            this.btnAđBill.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // btnOutComeBill
+            // 
+            this.btnOutComeBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutComeBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutComeBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutComeBill.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutComeBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutComeBill.Location = new System.Drawing.Point(258, 21);
+            this.btnOutComeBill.Name = "btnOutComeBill";
+            this.btnOutComeBill.Size = new System.Drawing.Size(188, 51);
+            this.btnOutComeBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutComeBill.TabIndex = 2;
+            this.btnOutComeBill.Text = "Thống kê doanh thu";
+            this.btnOutComeBill.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // stbItembanhang
+            // 
+            this.stbItembanhang.AttachedControl = this.stbPanelItembanhang;
+            this.stbItembanhang.GlobalItem = false;
+            this.stbItembanhang.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItembanhang.Icon")));
+            this.stbItembanhang.Name = "stbItembanhang";
+            this.stbItembanhang.Text = "Bán hàng";
+            // 
+            // stbPanelItemKho
+            // 
+            this.stbPanelItemKho.Controls.Add(this.ribWarehouse);
+            this.stbPanelItemKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stbPanelItemKho.Location = new System.Drawing.Point(0, 0);
+            this.stbPanelItemKho.Name = "stbPanelItemKho";
+            this.stbPanelItemKho.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
+            this.stbPanelItemKho.Size = new System.Drawing.Size(782, 148);
+            this.stbPanelItemKho.TabIndex = 0;
+            this.stbPanelItemKho.TabItem = this.stbItemkho;
+            // 
+            // ribWarehouse
+            // 
+            this.ribWarehouse.AutoOverflowEnabled = true;
             // 
             // 
             // 
-            this.ribbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar5.ContainerControlProcessDialogKey = true;
-            this.ribbonBar5.Controls.Add(this.btnOutcomeGuaranteeTM);
-            this.ribbonBar5.Controls.Add(this.btnOutcomeProductTM);
-            this.ribbonBar5.Controls.Add(this.btnOutcomeWarehouseBillTM);
-            this.ribbonBar5.Controls.Add(this.btnOutComeBillTM);
-            this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonBar5.Location = new System.Drawing.Point(12, 5);
-            this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(758, 138);
-            this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar5.TabIndex = 2;
+            this.ribWarehouse.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribWarehouse.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribWarehouse.ContainerControlProcessDialogKey = true;
+            this.ribWarehouse.Controls.Add(this.btnOutcomeProduct);
+            this.ribWarehouse.Controls.Add(this.btnOutcomeWarehouseBill);
+            this.ribWarehouse.Controls.Add(this.btnWarehouseBill);
+            this.ribWarehouse.Controls.Add(this.btnProduct);
+            this.ribWarehouse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribWarehouse.Location = new System.Drawing.Point(12, 5);
+            this.ribWarehouse.Name = "ribWarehouse";
+            this.ribWarehouse.Size = new System.Drawing.Size(758, 138);
+            this.ribWarehouse.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribWarehouse.TabIndex = 1;
             // 
             // 
             // 
-            this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribWarehouse.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // btnOutcomeGuaranteeTM
             // 
-            this.btnOutcomeGuaranteeTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutcomeGuaranteeTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutcomeGuaranteeTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutcomeGuaranteeTM.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutcomeGuaranteeTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutcomeGuaranteeTM.Location = new System.Drawing.Point(566, 21);
-            this.btnOutcomeGuaranteeTM.Name = "btnOutcomeGuaranteeTM";
-            this.btnOutcomeGuaranteeTM.Size = new System.Drawing.Size(164, 51);
-            this.btnOutcomeGuaranteeTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutcomeGuaranteeTM.TabIndex = 5;
-            this.btnOutcomeGuaranteeTM.Text = "Thống kê bảo hành";
-            this.btnOutcomeGuaranteeTM.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            // btnOutcomeProductTM
+            this.ribWarehouse.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            this.btnOutcomeProductTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutcomeProductTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutcomeProductTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutcomeProductTM.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutcomeProductTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutcomeProductTM.Location = new System.Drawing.Point(376, 21);
-            this.btnOutcomeProductTM.Name = "btnOutcomeProductTM";
-            this.btnOutcomeProductTM.Size = new System.Drawing.Size(170, 51);
-            this.btnOutcomeProductTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutcomeProductTM.TabIndex = 4;
-            this.btnOutcomeProductTM.Text = "Thống kê sản phẩm";
-            this.btnOutcomeProductTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // btnOutcomeProduct
             // 
-            // btnOutcomeWarehouseBillTM
+            this.btnOutcomeProduct.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutcomeProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutcomeProduct.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutcomeProduct.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutcomeProduct.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutcomeProduct.Location = new System.Drawing.Point(580, 21);
+            this.btnOutcomeProduct.Name = "btnOutcomeProduct";
+            this.btnOutcomeProduct.Size = new System.Drawing.Size(162, 51);
+            this.btnOutcomeProduct.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutcomeProduct.TabIndex = 3;
+            this.btnOutcomeProduct.Text = "Thống kê sản phẩm";
+            this.btnOutcomeProduct.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            this.btnOutcomeWarehouseBillTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutcomeWarehouseBillTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutcomeWarehouseBillTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutcomeWarehouseBillTM.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutcomeWarehouseBillTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutcomeWarehouseBillTM.Location = new System.Drawing.Point(189, 21);
-            this.btnOutcomeWarehouseBillTM.Name = "btnOutcomeWarehouseBillTM";
-            this.btnOutcomeWarehouseBillTM.Size = new System.Drawing.Size(163, 51);
-            this.btnOutcomeWarehouseBillTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutcomeWarehouseBillTM.TabIndex = 3;
-            this.btnOutcomeWarehouseBillTM.Text = "Thống kê phiếu nhập";
-            this.btnOutcomeWarehouseBillTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // btnOutcomeWarehouseBill
             // 
-            // btnOutComeBillTM
+            this.btnOutcomeWarehouseBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutcomeWarehouseBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutcomeWarehouseBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutcomeWarehouseBill.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutcomeWarehouseBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutcomeWarehouseBill.Location = new System.Drawing.Point(415, 21);
+            this.btnOutcomeWarehouseBill.Name = "btnOutcomeWarehouseBill";
+            this.btnOutcomeWarehouseBill.Size = new System.Drawing.Size(145, 51);
+            this.btnOutcomeWarehouseBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutcomeWarehouseBill.TabIndex = 2;
+            this.btnOutcomeWarehouseBill.Text = "Thống kê phiếu nhập";
+            this.btnOutcomeWarehouseBill.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            this.btnOutComeBillTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutComeBillTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutComeBillTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutComeBillTM.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutComeBillTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutComeBillTM.Location = new System.Drawing.Point(21, 21);
-            this.btnOutComeBillTM.Name = "btnOutComeBillTM";
-            this.btnOutComeBillTM.Size = new System.Drawing.Size(147, 51);
-            this.btnOutComeBillTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutComeBillTM.TabIndex = 2;
-            this.btnOutComeBillTM.Text = "Thống kê doanh thu";
-            this.btnOutComeBillTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // btnWarehouseBill
             // 
-            // stbItemthongke
+            this.btnWarehouseBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnWarehouseBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnWarehouseBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnWarehouseBill.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnWarehouseBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.megaphone_icon;
+            this.btnWarehouseBill.Location = new System.Drawing.Point(206, 20);
+            this.btnWarehouseBill.Name = "btnWarehouseBill";
+            this.btnWarehouseBill.Size = new System.Drawing.Size(189, 51);
+            this.btnWarehouseBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnWarehouseBill.TabIndex = 1;
+            this.btnWarehouseBill.Text = "Quản lý phiếu nhập kho";
+            this.btnWarehouseBill.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            this.stbItemthongke.AttachedControl = this.stbPanelItemThongke;
-            this.stbItemthongke.GlobalItem = false;
-            this.stbItemthongke.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemthongke.Icon")));
-            this.stbItemthongke.Name = "stbItemthongke";
-            this.stbItemthongke.Text = "Thống kê";
+            // btnProduct
+            // 
+            this.btnProduct.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProduct.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnProduct.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.home_icon;
+            this.btnProduct.Location = new System.Drawing.Point(14, 20);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnProduct.Size = new System.Drawing.Size(168, 51);
+            this.btnProduct.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnProduct.TabIndex = 0;
+            this.btnProduct.Text = "Quản lý sản phẩm";
+            this.btnProduct.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // stbItemkho
+            // 
+            this.stbItemkho.AttachedControl = this.stbPanelItemKho;
+            this.stbItemkho.GlobalItem = false;
+            this.stbItemkho.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemkho.Icon")));
+            this.stbItemkho.Name = "stbItemkho";
+            this.stbItemkho.Text = "Kho";
             // 
             // stbPanelItembaohanh
             // 
@@ -615,194 +631,178 @@
             this.stbItembaohanh.Name = "stbItembaohanh";
             this.stbItembaohanh.Text = "Bảo hành";
             // 
-            // stbPanelItemKho
+            // stbPanelItemThongke
             // 
-            this.stbPanelItemKho.Controls.Add(this.ribWarehouse);
-            this.stbPanelItemKho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stbPanelItemKho.Location = new System.Drawing.Point(0, 46);
-            this.stbPanelItemKho.Name = "stbPanelItemKho";
-            this.stbPanelItemKho.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
-            this.stbPanelItemKho.Size = new System.Drawing.Size(782, 102);
-            this.stbPanelItemKho.TabIndex = 0;
-            this.stbPanelItemKho.TabItem = this.stbItemkho;
+            this.stbPanelItemThongke.Controls.Add(this.ribbonBar5);
+            this.stbPanelItemThongke.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stbPanelItemThongke.Location = new System.Drawing.Point(0, 46);
+            this.stbPanelItemThongke.Name = "stbPanelItemThongke";
+            this.stbPanelItemThongke.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
+            this.stbPanelItemThongke.Size = new System.Drawing.Size(782, 102);
+            this.stbPanelItemThongke.TabIndex = 0;
+            this.stbPanelItemThongke.TabItem = this.stbItemthongke;
             // 
-            // ribWarehouse
+            // ribbonBar5
             // 
-            this.ribWarehouse.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribWarehouse.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar5.AutoOverflowEnabled = true;
             // 
             // 
             // 
-            this.ribWarehouse.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribWarehouse.ContainerControlProcessDialogKey = true;
-            this.ribWarehouse.Controls.Add(this.btnOutcomeProduct);
-            this.ribWarehouse.Controls.Add(this.btnOutcomeWarehouseBill);
-            this.ribWarehouse.Controls.Add(this.btnWarehouseBill);
-            this.ribWarehouse.Controls.Add(this.btnProduct);
-            this.ribWarehouse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribWarehouse.Location = new System.Drawing.Point(12, 5);
-            this.ribWarehouse.Name = "ribWarehouse";
-            this.ribWarehouse.Size = new System.Drawing.Size(758, 92);
-            this.ribWarehouse.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribWarehouse.TabIndex = 1;
+            this.ribbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribWarehouse.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar5.ContainerControlProcessDialogKey = true;
+            this.ribbonBar5.Controls.Add(this.btnOutcomeGuaranteeTM);
+            this.ribbonBar5.Controls.Add(this.btnOutcomeProductTM);
+            this.ribbonBar5.Controls.Add(this.btnOutcomeWarehouseBillTM);
+            this.ribbonBar5.Controls.Add(this.btnOutComeBillTM);
+            this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonBar5.Location = new System.Drawing.Point(12, 5);
+            this.ribbonBar5.Name = "ribbonBar5";
+            this.ribbonBar5.Size = new System.Drawing.Size(758, 92);
+            this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar5.TabIndex = 2;
             // 
             // 
             // 
-            this.ribWarehouse.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnOutcomeProduct
-            // 
-            this.btnOutcomeProduct.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutcomeProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutcomeProduct.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutcomeProduct.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutcomeProduct.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutcomeProduct.Location = new System.Drawing.Point(580, 21);
-            this.btnOutcomeProduct.Name = "btnOutcomeProduct";
-            this.btnOutcomeProduct.Size = new System.Drawing.Size(162, 51);
-            this.btnOutcomeProduct.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutcomeProduct.TabIndex = 3;
-            this.btnOutcomeProduct.Text = "Thống kê sản phẩm";
-            this.btnOutcomeProduct.Click += new System.EventHandler(this.btnFuntion_click);
-            // 
-            // btnOutcomeWarehouseBill
-            // 
-            this.btnOutcomeWarehouseBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutcomeWarehouseBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutcomeWarehouseBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutcomeWarehouseBill.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutcomeWarehouseBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutcomeWarehouseBill.Location = new System.Drawing.Point(415, 21);
-            this.btnOutcomeWarehouseBill.Name = "btnOutcomeWarehouseBill";
-            this.btnOutcomeWarehouseBill.Size = new System.Drawing.Size(145, 51);
-            this.btnOutcomeWarehouseBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutcomeWarehouseBill.TabIndex = 2;
-            this.btnOutcomeWarehouseBill.Text = "Thống kê phiếu nhập";
-            this.btnOutcomeWarehouseBill.Click += new System.EventHandler(this.btnFuntion_click);
-            // 
-            // btnWarehouseBill
-            // 
-            this.btnWarehouseBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnWarehouseBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnWarehouseBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnWarehouseBill.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnWarehouseBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.megaphone_icon;
-            this.btnWarehouseBill.Location = new System.Drawing.Point(206, 20);
-            this.btnWarehouseBill.Name = "btnWarehouseBill";
-            this.btnWarehouseBill.Size = new System.Drawing.Size(189, 51);
-            this.btnWarehouseBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnWarehouseBill.TabIndex = 1;
-            this.btnWarehouseBill.Text = "Quản lý phiếu nhập kho";
-            this.btnWarehouseBill.Click += new System.EventHandler(this.btnFuntion_click);
-            // 
-            // btnProduct
-            // 
-            this.btnProduct.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProduct.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnProduct.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.home_icon;
-            this.btnProduct.Location = new System.Drawing.Point(14, 20);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnProduct.Size = new System.Drawing.Size(168, 51);
-            this.btnProduct.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnProduct.TabIndex = 0;
-            this.btnProduct.Text = "Quản lý sản phẩm";
-            this.btnProduct.Click += new System.EventHandler(this.btnFuntion_click);
-            // 
-            // stbItemkho
-            // 
-            this.stbItemkho.AttachedControl = this.stbPanelItemKho;
-            this.stbItemkho.GlobalItem = false;
-            this.stbItemkho.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemkho.Icon")));
-            this.stbItemkho.Name = "stbItemkho";
-            this.stbItemkho.Text = "Kho";
-            // 
-            // stbPanelItembanhang
-            // 
-            this.stbPanelItembanhang.Controls.Add(this.ribbonBar2);
-            this.stbPanelItembanhang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stbPanelItembanhang.Location = new System.Drawing.Point(0, 0);
-            this.stbPanelItembanhang.Name = "stbPanelItembanhang";
-            this.stbPanelItembanhang.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
-            this.stbPanelItembanhang.Size = new System.Drawing.Size(782, 148);
-            this.stbPanelItembanhang.TabIndex = 0;
-            this.stbPanelItembanhang.TabItem = this.stbItembanhang;
-            // 
-            // ribbonBar2
-            // 
-            this.ribbonBar2.AutoOverflowEnabled = true;
+            this.ribbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnOutcomeGuaranteeTM
+            // 
+            this.btnOutcomeGuaranteeTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutcomeGuaranteeTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutcomeGuaranteeTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutcomeGuaranteeTM.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutcomeGuaranteeTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutcomeGuaranteeTM.Location = new System.Drawing.Point(566, 21);
+            this.btnOutcomeGuaranteeTM.Name = "btnOutcomeGuaranteeTM";
+            this.btnOutcomeGuaranteeTM.Size = new System.Drawing.Size(164, 51);
+            this.btnOutcomeGuaranteeTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutcomeGuaranteeTM.TabIndex = 5;
+            this.btnOutcomeGuaranteeTM.Text = "Thống kê bảo hành";
+            this.btnOutcomeGuaranteeTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // btnOutcomeProductTM
+            // 
+            this.btnOutcomeProductTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutcomeProductTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutcomeProductTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutcomeProductTM.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutcomeProductTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutcomeProductTM.Location = new System.Drawing.Point(376, 21);
+            this.btnOutcomeProductTM.Name = "btnOutcomeProductTM";
+            this.btnOutcomeProductTM.Size = new System.Drawing.Size(170, 51);
+            this.btnOutcomeProductTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutcomeProductTM.TabIndex = 4;
+            this.btnOutcomeProductTM.Text = "Thống kê sản phẩm";
+            this.btnOutcomeProductTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // btnOutcomeWarehouseBillTM
+            // 
+            this.btnOutcomeWarehouseBillTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutcomeWarehouseBillTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutcomeWarehouseBillTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutcomeWarehouseBillTM.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutcomeWarehouseBillTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutcomeWarehouseBillTM.Location = new System.Drawing.Point(189, 21);
+            this.btnOutcomeWarehouseBillTM.Name = "btnOutcomeWarehouseBillTM";
+            this.btnOutcomeWarehouseBillTM.Size = new System.Drawing.Size(163, 51);
+            this.btnOutcomeWarehouseBillTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutcomeWarehouseBillTM.TabIndex = 3;
+            this.btnOutcomeWarehouseBillTM.Text = "Thống kê phiếu nhập";
+            this.btnOutcomeWarehouseBillTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // btnOutComeBillTM
+            // 
+            this.btnOutComeBillTM.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOutComeBillTM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutComeBillTM.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOutComeBillTM.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOutComeBillTM.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
+            this.btnOutComeBillTM.Location = new System.Drawing.Point(21, 21);
+            this.btnOutComeBillTM.Name = "btnOutComeBillTM";
+            this.btnOutComeBillTM.Size = new System.Drawing.Size(147, 51);
+            this.btnOutComeBillTM.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnOutComeBillTM.TabIndex = 2;
+            this.btnOutComeBillTM.Text = "Thống kê doanh thu";
+            this.btnOutComeBillTM.Click += new System.EventHandler(this.btnFuntion_click);
+            // 
+            // stbItemthongke
+            // 
+            this.stbItemthongke.AttachedControl = this.stbPanelItemThongke;
+            this.stbItemthongke.GlobalItem = false;
+            this.stbItemthongke.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemthongke.Icon")));
+            this.stbItemthongke.Name = "stbItemthongke";
+            this.stbItemthongke.Text = "Thống kê";
+            // 
+            // stbPanelItemTtcanhan
+            // 
+            this.stbPanelItemTtcanhan.Controls.Add(this.ribbonBar3);
+            this.stbPanelItemTtcanhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stbPanelItemTtcanhan.Location = new System.Drawing.Point(0, 46);
+            this.stbPanelItemTtcanhan.Name = "stbPanelItemTtcanhan";
+            this.stbPanelItemTtcanhan.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
+            this.stbPanelItemTtcanhan.Size = new System.Drawing.Size(782, 102);
+            this.stbPanelItemTtcanhan.TabIndex = 0;
+            this.stbPanelItemTtcanhan.TabItem = this.stbItemttcanhan;
+            // 
+            // ribbonBar3
+            // 
+            this.ribbonBar3.AutoOverflowEnabled = true;
             // 
             // 
             // 
-            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.ContainerControlProcessDialogKey = true;
-            this.ribbonBar2.Controls.Add(this.btnAđBill);
-            this.ribbonBar2.Controls.Add(this.btnOutComeBill);
-            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonBar2.Location = new System.Drawing.Point(12, 5);
-            this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(758, 138);
-            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar2.TabIndex = 1;
+            this.ribbonBar3.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar3.ContainerControlProcessDialogKey = true;
+            this.ribbonBar3.Controls.Add(this.btnEditMyInfo);
+            this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonBar3.Location = new System.Drawing.Point(12, 5);
+            this.ribbonBar3.Name = "ribbonBar3";
+            this.ribbonBar3.Size = new System.Drawing.Size(758, 92);
+            this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar3.TabIndex = 2;
             // 
             // 
             // 
-            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar3.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // btnAđBill
             // 
-            this.btnAđBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAđBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAđBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAđBill.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAđBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.File_New_icon;
-            this.btnAđBill.Location = new System.Drawing.Point(20, 21);
-            this.btnAđBill.Name = "btnAđBill";
-            this.btnAđBill.Size = new System.Drawing.Size(191, 51);
-            this.btnAđBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnAđBill.TabIndex = 3;
-            this.btnAđBill.Text = "Tạo mới hóa đơn";
-            this.btnAđBill.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            // btnOutComeBill
+            this.ribbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            this.btnOutComeBill.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOutComeBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOutComeBill.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOutComeBill.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnOutComeBill.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.keynote_on_icon;
-            this.btnOutComeBill.Location = new System.Drawing.Point(258, 21);
-            this.btnOutComeBill.Name = "btnOutComeBill";
-            this.btnOutComeBill.Size = new System.Drawing.Size(188, 51);
-            this.btnOutComeBill.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btnOutComeBill.TabIndex = 2;
-            this.btnOutComeBill.Text = "Thống kê doanh thu";
-            this.btnOutComeBill.Click += new System.EventHandler(this.btnFuntion_click);
+            // btnEditMyInfo
             // 
-            // stbItembanhang
+            this.btnEditMyInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnEditMyInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEditMyInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnEditMyInfo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnEditMyInfo.Image = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.Contacts_icon;
+            this.btnEditMyInfo.Location = new System.Drawing.Point(20, 20);
+            this.btnEditMyInfo.Name = "btnEditMyInfo";
+            this.btnEditMyInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEditMyInfo.Size = new System.Drawing.Size(708, 51);
+            this.btnEditMyInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btnEditMyInfo.TabIndex = 1;
+            this.btnEditMyInfo.Text = "Chỉnh sửa thông tin cá nhân";
+            this.btnEditMyInfo.Click += new System.EventHandler(this.btnFuntion_click);
             // 
-            this.stbItembanhang.AttachedControl = this.stbPanelItembanhang;
-            this.stbItembanhang.GlobalItem = false;
-            this.stbItembanhang.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItembanhang.Icon")));
-            this.stbItembanhang.Name = "stbItembanhang";
-            this.stbItembanhang.Text = "Bán hàng";
+            // stbItemttcanhan
+            // 
+            this.stbItemttcanhan.AttachedControl = this.stbPanelItemTtcanhan;
+            this.stbItemttcanhan.GlobalItem = false;
+            this.stbItemttcanhan.Icon = ((System.Drawing.Icon)(resources.GetObject("stbItemttcanhan.Icon")));
+            this.stbItemttcanhan.Name = "stbItemttcanhan";
+            this.stbItemttcanhan.Text = "Thông tin cá nhân";
             // 
             // pnlImage
             // 
@@ -901,6 +901,7 @@
             this.btnExpand.Size = new System.Drawing.Size(33, 18);
             this.btnExpand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnExpand.TabIndex = 4;
+            this.btnExpand.Visible = false;
             this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
             // 
             // tapcol_content
@@ -1081,16 +1082,16 @@
             this.ribHome.ResumeLayout(false);
             this.stbPanelItemthietlap.ResumeLayout(false);
             this.ribbonBar1.ResumeLayout(false);
-            this.stbPanelItemTtcanhan.ResumeLayout(false);
-            this.ribbonBar3.ResumeLayout(false);
-            this.stbPanelItemThongke.ResumeLayout(false);
-            this.ribbonBar5.ResumeLayout(false);
-            this.stbPanelItembaohanh.ResumeLayout(false);
-            this.ribbonBar4.ResumeLayout(false);
-            this.stbPanelItemKho.ResumeLayout(false);
-            this.ribWarehouse.ResumeLayout(false);
             this.stbPanelItembanhang.ResumeLayout(false);
             this.ribbonBar2.ResumeLayout(false);
+            this.stbPanelItemKho.ResumeLayout(false);
+            this.ribWarehouse.ResumeLayout(false);
+            this.stbPanelItembaohanh.ResumeLayout(false);
+            this.ribbonBar4.ResumeLayout(false);
+            this.stbPanelItemThongke.ResumeLayout(false);
+            this.ribbonBar5.ResumeLayout(false);
+            this.stbPanelItemTtcanhan.ResumeLayout(false);
+            this.ribbonBar3.ResumeLayout(false);
             this.pnlImage.ResumeLayout(false);
             this.pnlInfoEmployee.ResumeLayout(false);
             this.pnlInfoEmployee.PerformLayout();

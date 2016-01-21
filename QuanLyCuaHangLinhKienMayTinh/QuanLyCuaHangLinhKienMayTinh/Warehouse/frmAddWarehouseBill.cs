@@ -55,7 +55,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                DisplayNotify("Không thể đọc dữ liệu từ csdl, mã lỗi:"+ex.Message, -1);
             }
         }
 
@@ -106,7 +106,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
                 return _bllWarehouseBill.CreateWarehouseBillID();            }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                 DisplayNotify("Không thể tạo mới ID, mã lỗi:"+ex.Message, -1);
             }
             return "";
         }
@@ -143,8 +143,9 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
                 {
                     txtWarehouseBillID.Text = CreateNewWarehouseBillID();
                     DisplayNotify("Thêm phiếu nhập kho thành công!", 1);
-                    MessageBox.Show("Thêm phiếu nhập kho thành công!");
-                    dgvDetailWarehouseBill.Rows.Clear();
+                    btnThem.Enabled = false;
+                   // MessageBox.Show("Thêm phiếu nhập kho thành công!");
+                    cleandgv(dgvDetailWarehouseBill);
                 }
 
             }
@@ -158,20 +159,24 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         {
             try
             {
-                var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
-                if (!s.IsEmpty() || s != null)
+				if (dgvDetailWarehouseBill.CurrentRow.Cells[1].Value != null)
+
                 {
-                    DtoProduct dto = _bllProduct.GetProductByID(s);
-                    dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
-                }
-                if (dgvDetailWarehouseBill.CurrentRow.Cells[3].Value == null)
-                {
-                    dgvDetailWarehouseBill.CurrentRow.Cells[3].Value = 1;
-                }
+					var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
+					if (!s.IsEmpty() || s != null)
+					{
+						DtoProduct dto = _bllProduct.GetProductByID(s);
+						dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
+					}
+					if (dgvDetailWarehouseBill.CurrentRow.Cells[3].Value == null)
+					{
+						dgvDetailWarehouseBill.CurrentRow.Cells[3].Value = 1;
+					}
+				}
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                DisplayNotify("Không thể load đơn giá nhập, mã lỗi"+ex.Message, -1);
             }
         }
 
@@ -212,7 +217,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                DisplayNotify("Không thể tính tổng tiền:, mã lỗi:"+ex.Message, -1);
             }
             return 0;}
 
@@ -225,17 +230,21 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         {
             try
             {
-                var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
-                if (!s.IsEmpty() || s != null)
+				if (dgvDetailWarehouseBill.CurrentRow.Cells[1].Value != null)
+
                 {
-                    DtoProduct dto = _bllProduct.GetProductByID(s);
-                    dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
-                }
-                SetValue();
+					var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
+					if (!s.IsEmpty() || s != null)
+					{
+						DtoProduct dto = _bllProduct.GetProductByID(s);
+						dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
+					}
+					SetValue();
+				}
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                DisplayNotify("Không thể load đơn giá nhập, mã lỗi" + ex.Message, -1);
             }
         }
 
@@ -277,16 +286,23 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         {
             try
             {
-                var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
-                if (!s.IsEmpty() || s != null)
+				if (dgvDetailWarehouseBill.CurrentRow != null)
+
                 {
-                    DtoProduct dto = _bllProduct.GetProductByID(s);
-                    dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
-                }
+                    if (dgvDetailWarehouseBill.CurrentRow.Cells[1].Value != null)
+                    {
+						var s = dgvDetailWarehouseBill.CurrentRow.Cells[1].Value.ToString();
+						if (!s.IsEmpty() || s != null)
+						{
+							DtoProduct dto = _bllProduct.GetProductByID(s);
+							dgvDetailWarehouseBill.CurrentRow.Cells[2].Value = dto.DonGiaNhap;
+						}
+						}
+						}
             }
             catch (Exception ex)
             {
-                DisplayNotify(ex.Message, -1);
+                 DisplayNotify("Không thể load đơn giá nhập, mã lỗi" + ex.Message, -1);
             }
         }
 
@@ -309,6 +325,25 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             frm.ShowDialog();
 
         }
+		 private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            cleandgv(dgvDetailWarehouseBill);
+        }
+        public void cleandgv(DataGridView dgv)
+        {
+            try
+            {
+                if (dgv.Rows != null)
+                {
+                    dgv.Rows.Clear();
+                }
+            }
+            catch(Exception ex)
+            {
+                //DisplayNotify("Lỗi không thẻ tải lại datagridview, mã lỗi:" + ex.Message, -1);
+            }
+        }
+		
 
       
     }

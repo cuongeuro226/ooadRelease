@@ -44,7 +44,6 @@
             this.btnCloseFind = new DevComponents.DotNetBar.ButtonX();
             this.btnFindnext = new DevComponents.DotNetBar.ButtonX();
             this.txtFindText = new System.Windows.Forms.TextBox();
-            this.btnLamTuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.btnTim = new DevComponents.DotNetBar.ButtonX();
@@ -69,9 +68,11 @@
             this.lblLoaiSanPham = new DevComponents.DotNetBar.LabelX();
             this.txtDonGiaBan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.lblNotify = new System.Windows.Forms.Label();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.timerNotify = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.clmProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +131,7 @@
             this.dgvListProduct.Size = new System.Drawing.Size(910, 289);
             this.dgvListProduct.TabIndex = 4;
             this.dgvListProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListProduct_CellClick);
+            this.dgvListProduct.SelectionChanged += new System.EventHandler(this.dgvListProduct_SelectionChanged);
             // 
             // btnThem
             // 
@@ -169,7 +171,6 @@
             // 
             this.panel7.Controls.Add(this.pnlFind);
             this.panel7.Controls.Add(this.dgvListProduct);
-            this.panel7.Controls.Add(this.btnLamTuoi);
             this.panel7.Controls.Add(this.btnThoat);
             this.panel7.Controls.Add(this.btnLuu);
             this.panel7.Controls.Add(this.btnTim);
@@ -204,6 +205,7 @@
             this.btnCloseFind.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCloseFind.TabIndex = 2;
             this.btnCloseFind.Text = "X";
+            this.btnCloseFind.Click += new System.EventHandler(this.btnCloseFind_Click);
             // 
             // btnFindnext
             // 
@@ -224,25 +226,12 @@
             this.txtFindText.Size = new System.Drawing.Size(202, 20);
             this.txtFindText.TabIndex = 0;
             // 
-            // btnLamTuoi
-            // 
-            this.btnLamTuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLamTuoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLamTuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLamTuoi.Location = new System.Drawing.Point(928, 180);
-            this.btnLamTuoi.Name = "btnLamTuoi";
-            this.btnLamTuoi.Size = new System.Drawing.Size(80, 28);
-            this.btnLamTuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnLamTuoi.TabIndex = 2;
-            this.btnLamTuoi.Text = "Làm Tươi";
-            this.btnLamTuoi.Click += new System.EventHandler(this.btnLamTuoi_Click);
-            // 
             // btnThoat
             // 
             this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat.Location = new System.Drawing.Point(928, 220);
+            this.btnThoat.Location = new System.Drawing.Point(931, 170);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 28);
             this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -316,6 +305,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.lblMaSanPham);
             this.panel6.Controls.Add(this.lblGhiChu);
             this.panel6.Controls.Add(this.txtMaSanPham);
@@ -384,6 +374,13 @@
             // txtDonViTinh
             // 
             this.txtDonViTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtDonViTinh.AutoCompleteCustomSource.AddRange(new string[] {
+            "Cái",
+            "Chiếc",
+            "Cây",
+            "Con"});
+            this.txtDonViTinh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDonViTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -524,6 +521,11 @@
             // txtLoaiSanPham
             // 
             this.txtLoaiSanPham.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtLoaiSanPham.AutoCompleteCustomSource.AddRange(new string[] {
+            "Phụ kiện",
+            "Linh kiện"});
+            this.txtLoaiSanPham.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtLoaiSanPham.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -568,6 +570,7 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::QuanLyCuaHangLinhKienMayTinh.Properties.Resources.TieuDeChung;
+            this.panel2.Controls.Add(this.btnRefresh);
             this.panel2.Controls.Add(this.lblNotify);
             this.panel2.Controls.Add(this.labelX1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -575,6 +578,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1011, 36);
             this.panel2.TabIndex = 5;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRefresh.Location = new System.Drawing.Point(931, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "làm tươi";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
             // 
             // lblNotify
             // 
@@ -602,6 +617,15 @@
             // timerNotify
             // 
             this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(491, 140);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Ngày";
             // 
             // clmProductID
             // 
@@ -637,7 +661,7 @@
             // clmAccede
             // 
             this.clmAccede.DataPropertyName = "DonGiaNhap";
-            dataGridViewCellStyle2.Format = "C0";
+            dataGridViewCellStyle2.Format = "N0";
             dataGridViewCellStyle2.NullValue = null;
             this.clmAccede.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmAccede.HeaderText = "Giá Nhập";
@@ -647,7 +671,7 @@
             // clmPrice
             // 
             this.clmPrice.DataPropertyName = "DonGiaBan";
-            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = null;
             this.clmPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmPrice.HeaderText = "Giá Bán";
@@ -735,7 +759,6 @@
         private DevComponents.DotNetBar.LabelX lblDonGiaBan;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDonGiaNhap;
         private DevComponents.DotNetBar.LabelX lblDonGiaNhap;
-        private DevComponents.DotNetBar.ButtonX btnLamTuoi;
         private System.Windows.Forms.Panel pnlFind;
         private DevComponents.DotNetBar.ButtonX btnCloseFind;
         private DevComponents.DotNetBar.ButtonX btnFindnext;
@@ -743,6 +766,8 @@
         private System.Windows.Forms.Label lblNotify;
         private System.Windows.Forms.Timer timerNotify;
         private DevComponents.DotNetBar.LabelX lblMaSanPham;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProductType;

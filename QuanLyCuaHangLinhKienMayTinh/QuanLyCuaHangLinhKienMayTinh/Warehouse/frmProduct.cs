@@ -24,6 +24,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         private BllProduct _bllProduct;
         private List<TextBox> _listTextBoxs;
         #endregion
+
         #region Initialization 
         public frmProduct()
         {
@@ -36,11 +37,27 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-            dgvListProduct.DataSource = _bllProduct.GetListProducts();
+           // dgvListProduct.DataSource = _bllProduct.GetListProducts();
+
+            //DgvDataBindings();
+
+            //InitListTextBoxs();
+			try
+            {
+                dgvListProduct.DataSource = _bllProduct.GetListProducts();
+            
 
             DgvDataBindings();
 
             InitListTextBoxs();
+                ClearTextBox();
+                txtMaSanPham.Enabled = true;
+                btnLuu.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                DisplayNotify("Lỗi không load được danh sách sản phẩm" + ex.Message,-1);
+            }
 
 
         }
@@ -58,7 +75,32 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
 
         private void DgvDataBindings()
         {
-            txtMaSanPham.DataBindings.Clear();
+			 DevComponents.DotNetBar.Controls.DataGridViewX g = dgvListProduct;
+            if (g.SelectedRows.Count == 1)
+            {
+                txtMaSanPham.Text = g.SelectedRows[0].Cells[0].Value.ToString();
+
+
+                txtTenSanPham.Text = g.SelectedRows[0].Cells[1].Value.ToString();
+
+
+                txtLoaiSanPham.Text = g.SelectedRows[0].Cells[2].Value.ToString();
+
+
+                txtThoiGianBaoHanh.Text = g.SelectedRows[0].Cells[3].Value.ToString();
+
+                txtDonGiaNhap.Text = g.SelectedRows[0].Cells[4].Value.ToString();
+
+
+                txtDonGiaBan.Text = g.SelectedRows[0].Cells[5].Value.ToString();
+
+
+                txtDonViTinh.Text = g.SelectedRows[0].Cells[7].Value.ToString();
+
+                txtGhiChu.Text = g.SelectedRows[0].Cells[8].Value.ToString();
+            }
+
+           /*  txtMaSanPham.DataBindings.Clear();
             txtMaSanPham.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
             txtMaSanPham.DataBindings.Add("Text", dgvListProduct.DataSource, "MaSanPham");
 
@@ -88,7 +130,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             
             txtGhiChu.DataBindings.Clear();
             txtGhiChu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            txtGhiChu.DataBindings.Add("Text", dgvListProduct.DataSource, "GhiChu");
+            txtGhiChu.DataBindings.Add("Text", dgvListProduct.DataSource, "GhiChu"); */
         }
 
         #endregion
@@ -140,21 +182,46 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaSanPham.Text.IsEmpty())
+            try
             {
-                if (_bllProduct.DeleteProduct(txtMaSanPham.Text))
+                if (txtMaSanPham.Text.IsEmpty())
+
+
                 {
-                    MessageBox.Show(Constants.MsgNotificationDeletetSuccessfuly);
+                    if (_bllProduct.DeleteProduct(txtMaSanPham.Text))
+                    {
+                        MessageBox.Show(Constants.MsgNotificationDeletetSuccessfuly);
+                        dgvListProduct.DataSource = _bllProduct.GetListProducts();
+                        DgvDataBindings();
+                    }
+                    else
+                    {
+                        DisplayNotify(Constants.MsgExceptionSql, -1);
+                        // MessageBox.Show(Constants.MsgExceptionSql);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show(Constants.MsgExceptionSql);
-                }
+            }
+            catch (Exception ex)
+            {
+                DisplayNotify("Không thể xóa", -1);
+
+                // if (txtMaSanPham.Text.IsEmpty())
+                // {
+                // if (_bllProduct.DeleteProduct(txtMaSanPham.Text))
+                // {
+                // MessageBox.Show(Constants.MsgNotificationDeletetSuccessfuly);
+                // }
+                // else
+                // {
+                // MessageBox.Show(Constants.MsgExceptionSql);
+                // }
+                // }
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+			string keyselect = "";
             try
             {
                 if (!CheckTextBox())
@@ -171,16 +238,24 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
                     0,
                     txtDonViTinh.Text,
                     txtGhiChu.Text);
+					keyselect = data.MaSanPham;
 
                 if (_bllProduct.EditProduct(data))
                 {
-                    MessageBox.Show(Constants.MsgNotificationEditSuccessfuly);
+                    //MessageBox.Show(Constants.MsgNotificationEditSuccessfuly);
+                    DisplayNotify(Constants.MsgNotificationEditSuccessfuly, 1);
+					dgvListProduct.DataSource = _bllProduct.GetListProducts();
+					DgvDataBindings();
+					SelectRow(dgvListProduct, keyselect);
                 }
                 else
                 {
-                    MessageBox.Show(Constants.MsgExceptionSql);
+                    // MessageBox.Show(Constants.MsgExceptionSql);
+                    DisplayNotify(Constants.MsgExceptionSql, -1);
                 }
-                btnLamTuoi.PerformClick();
+                txtMaSanPham.Enabled = false;
+                //  btnLamTuoi.PerformClick();
+                
             }
             catch (Exception ex)
             {
@@ -197,6 +272,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         {
             try
             {
+				string keyselect = "";
                 if (!CheckTextBox())
                 {
                     return;
@@ -211,18 +287,26 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
                     0,
                     txtDonViTinh.Text,
                     txtGhiChu.Text);
+					keyselect = data.MaSanPham;
 
                 if (_bllProduct.AddProduct(data))
                 {
-                    MessageBox.Show(Constants.MsgNotificationSuccessfuly);
+                    //MessageBox.Show(Constants.MsgNotificationSuccessfuly);
+                    DisplayNotify(Constants.MsgNotificationSuccessfuly, 1);
                     btnLuu.Enabled = false;
+					txtMaSanPham.Enabled = false;
+					//  btnLamTuoi.PerformClick();
+					dgvListProduct.DataSource = _bllProduct.GetListProducts();
+					DgvDataBindings();
+					SelectRow(dgvListProduct, keyselect);
                 }
                 else
                 {
-                    MessageBox.Show(Constants.MsgAlreadyExist);
+                    DisplayNotify(Constants.MsgAlreadyExist, -1);
+                    //MessageBox.Show(Constants.MsgAlreadyExist);
                 }
                 txtMaSanPham.Enabled = false;
-                btnLamTuoi.PerformClick();
+                 
             }
             catch (Exception ex)
             {
@@ -239,8 +323,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
             DgvDataBindings();
         }
         #endregion
-
-
+        
         #region Notify
         public void ResetNotify()
         {
@@ -282,7 +365,14 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         #region TextBox Event
         private void txt_TextChanged(object sender, EventArgs e)
         {
-            
+            if ((sender as TextBox) == txtDonGiaNhap)
+            {
+                try
+                {
+                    txtDonGiaBan.Text = String.Format("{0:N0}",(double.Parse((sender as TextBox).Text.ToString())*1.1));
+                }
+                catch (FormatException ex) { }
+            }
         }
 
         private void txtNumberic_KeyPress(object sender, KeyPressEventArgs e)
@@ -296,17 +386,64 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
 
         private void txtDouble_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
             }
-            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            
+        }
+		private void dgvListProduct_SelectionChanged(object sender, EventArgs e)
+        {
+           
+             
+
+                DgvDataBindings();
+
+
+
+            
+               
+        }
+
+        private void btnRefresh_Click_1(object sender, EventArgs e)
+        {
+            try
             {
-                e.Handled = true;
+                dgvListProduct.DataSource = _bllProduct.GetListProducts();
+
+                DgvDataBindings();
+                InitListTextBoxs();
+                ClearTextBox();
+                txtMaSanPham.Enabled = true;
+                btnLuu.Enabled = true;
+
+                
+                 
+            }
+            catch (Exception ex)
+            {
+                DisplayNotify("Lỗi không load được danh sách sản phẩm" + ex.Message, -1);
             }
         }
         #endregion
-
+		public void SelectRow(DataGridView dgv, string key)
+        {
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                for (int j = 0; j < dgv.Rows[i].Cells.Count; j++)
+                {
+                    if (dgv.Rows[i].Cells[j].Value != null && dgv.Rows[i].Cells[j].Value != "")
+                    {
+                        if (dgv.Rows[i].Cells[j].Value.ToString() == key)
+                        {
+                            dgv.Rows[i].Selected = true;
+                            dgv.FirstDisplayedScrollingRowIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
         #region Check Data
 
@@ -340,6 +477,11 @@ namespace QuanLyCuaHangLinhKienMayTinh.Warehouse
         private void btnFindnext_Click(object sender, EventArgs e)
         {
             indexsearch = CommonFunction.Search(dgvListProduct, txtFindText.Text, indexsearch);
+        }
+
+        private void btnCloseFind_Click(object sender, EventArgs e)
+        {
+            pnlFind.Enabled = false;
         }
     }
 }

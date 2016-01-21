@@ -10,15 +10,3 @@ F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhK
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\DTO.pdb
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\BLL\obj\Debug\BLL.dll
 F:\HK_7\SE100.G11-Phương pháp PM HĐT\snv_Do_an\trunk\code\QuanLyCuaHangLinhKienMayTinh\BLL\obj\Debug\BLL.pdb
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\BLL.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\BLL.pdb
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\CommonLayer.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\DAL.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\DTO.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\CommonLayer.pdb
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\DAL.pdb
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\bin\Debug\DTO.pdb
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\obj\Debug\BLL.dll
-D:\Study\OOAD\ooadRelease\QuanLyCuaHangLinhKienMayTinh\BLL\obj\Debug\BLL.pdb

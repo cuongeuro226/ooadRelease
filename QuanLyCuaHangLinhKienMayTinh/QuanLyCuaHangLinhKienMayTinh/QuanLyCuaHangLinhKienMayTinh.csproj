@@ -76,6 +76,10 @@
     <Reference Include="DevExpress.XtraScheduler.v13.1.Extensions, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpellChecker.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -153,6 +157,51 @@
     <Compile Include="Guarantee\frmPhieuTraHangBaoHanh.Designer.cs">
       <DependentUpon>frmPhieuTraHangBaoHanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guarantee\frmThongKeBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\frmThongKeBaoHanh.Designer.cs">
+      <DependentUpon>frmThongKeBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PhieuTiepNhanBaoHanhDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhieuTiepNhanBaoHanhDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PhieuTraHangBaoHanhDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhieuTraHangBaoHanhDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PrintPhieuTiepNhanBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\PrintPhieuTiepNhanBaoHanh.Designer.cs">
+      <DependentUpon>PrintPhieuTiepNhanBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PrintPhieuTraHangBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\PrintPhieuTraHangBaoHanh.Designer.cs">
+      <DependentUpon>PrintPhieuTraHangBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PrintThongKeTiepNhanBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\PrintThongKeTiepNhanBaoHanh.Designer.cs">
+      <DependentUpon>PrintThongKeTiepNhanBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\PrintThongKeTraHangBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee\PrintThongKeTraHangBaoHanh.Designer.cs">
+      <DependentUpon>PrintThongKeTraHangBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee\ThongKeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -160,6 +209,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProductReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -187,6 +241,12 @@
     </Compile>
     <Compile Include="Sales\frmAddBill.Designer.cs">
       <DependentUpon>frmAddBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\frmPrintBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmPrintBill.Designer.cs">
+      <DependentUpon>frmPrintBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmReportSaleResult.cs">
       <SubType>Form</SubType>
@@ -224,6 +284,12 @@
     </Compile>
     <Compile Include="Warehouse\frmWarehouseBill.Designer.cs">
       <DependentUpon>frmWarehouseBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse\frmWarehouseBillPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse\frmWarehouseBillPrint.Designer.cs">
+      <DependentUpon>frmWarehouseBillPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Warehouse\PrintAddWarehouseBill.cs">
       <SubType>Form</SubType>
@@ -273,6 +339,25 @@
     <EmbeddedResource Include="Guarantee\frmPhieuTraHangBaoHanh.resx">
       <DependentUpon>frmPhieuTraHangBaoHanh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\frmThongKeBaoHanh.resx">
+      <DependentUpon>frmThongKeBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\PrintPhieuTiepNhanBaoHanh.rdlc" />
+    <EmbeddedResource Include="Guarantee\PrintPhieuTiepNhanBaoHanh.resx">
+      <DependentUpon>PrintPhieuTiepNhanBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\PrintPhieuTraHangBaoHanh.rdlc" />
+    <EmbeddedResource Include="Guarantee\PrintPhieuTraHangBaoHanh.resx">
+      <DependentUpon>PrintPhieuTraHangBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\PrintThongKeTiepNhanBaoHanh.resx">
+      <DependentUpon>PrintThongKeTiepNhanBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\PrintThongKeTraHangBaoHanh.resx">
+      <DependentUpon>PrintThongKeTraHangBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee\ReportThongKeTiepNhanBaoHanh.rdlc" />
+    <EmbeddedResource Include="Guarantee\ReportThongKeTraHangBaoHanh.rdlc" />
     <EmbeddedResource Include="PrintRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
@@ -282,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmAddBill.resx">
       <DependentUpon>frmAddBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmPrintBill.resx">
+      <DependentUpon>frmPrintBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmReportSaleResult.resx">
       <DependentUpon>frmReportSaleResult.cs</DependentUpon>
@@ -304,6 +392,9 @@
     <EmbeddedResource Include="Warehouse\frmWarehouseBill.resx">
       <DependentUpon>frmWarehouseBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse\frmWarehouseBillPrint.resx">
+      <DependentUpon>frmWarehouseBillPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Warehouse\PrintAddWarehouseBill.resx">
       <DependentUpon>PrintAddWarehouseBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +407,52 @@
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.exe.config" />
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.config" />
     <None Include="bin\Debug\QuanLyCuaHangLinhKienMayTinh.vshost.exe.manifest" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Guarantee\PhieuTiepNhanBaoHanhDataSet.xsc">
+      <DependentUpon>PhieuTiepNhanBaoHanhDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Guarantee\PhieuTiepNhanBaoHanhDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhieuTiepNhanBaoHanhDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Guarantee\PhieuTiepNhanBaoHanhDataSet.xss">
+      <DependentUpon>PhieuTiepNhanBaoHanhDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Guarantee\PhieuTraHangBaoHanhDataSet.xsc">
+      <DependentUpon>PhieuTraHangBaoHanhDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Guarantee\PhieuTraHangBaoHanhDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhieuTraHangBaoHanhDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Guarantee\PhieuTraHangBaoHanhDataSet.xss">
+      <DependentUpon>PhieuTraHangBaoHanhDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Guarantee\ThongKeDataSet.xsc">
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Guarantee\ThongKeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThongKeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Guarantee\ThongKeDataSet.xss">
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="ProductDataset.xsc">
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductDataset.xss">
+      <DependentUpon>ProductDataset.xsd</DependentUpon>
+    </None>
     <None Include="ProductReport.xsc">
       <DependentUpon>ProductReport.xsd</DependentUpon>
     </None>

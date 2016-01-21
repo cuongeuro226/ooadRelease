@@ -86,6 +86,56 @@ namespace DAL
             //     con.Write(sql);
             //}
 
+        public DataTable GetEmployee(string EmployeeID)
+        {
+            try
+            {
+                SqlParameter[] para =
+                {
+                    new SqlParameter("@MaNV", EmployeeID),
+                };
+
+
+                return SqlHelper.ExecuteDataset(Constants.ConnectionString,
+                    CommandType.StoredProcedure,
+                    "GetEmployee", para).Tables[0];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public List<string> GetFuntionByPositionID(string positionID)
+        {
+            List<string> l = new List<string>();
+            try
+            {
+                SqlParameter[] para =
+                {
+                    new SqlParameter("@MaCN", positionID),
+                };
+
+
+                DataTable d = SqlHelper.ExecuteDataset(Constants.ConnectionString,
+                    CommandType.StoredProcedure,
+                    "GetFuntionByPositionID", para).Tables[0];
+
+                if (d.Rows.Count > 0)
+                {
+                    for (int i = 0; i < d.Rows[0].ItemArray.Length; i++)
+                    {
+                        l.Add(d.Rows[0].ItemArray[i].ToString());
+                    }
+                }
+                return l;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
 
 
 

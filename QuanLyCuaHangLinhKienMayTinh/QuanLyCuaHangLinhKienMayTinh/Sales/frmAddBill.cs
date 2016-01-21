@@ -212,7 +212,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Sales
             if (e.ColumnIndex == 5)
             {
                 
-                sumMoney -= int.Parse(r.Cells[3].Value.ToString()) * int.Parse(r.Cells[2].Value.ToString());
+                sumMoney -= int.Parse(rule.partToInt( r.Cells[3].Value.ToString())) * int.Parse(r.Cells[2].Value.ToString());
                 txtTaxMoney.Text =rule.parrtToMonney( (sumMoney * 0.1).ToString());
                 txtSumMoney.Text = sumMoney.ToString();
                 dgvProductAdded.Rows.RemoveAt(e.RowIndex);

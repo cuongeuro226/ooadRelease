@@ -23,6 +23,7 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
 
         private BllChiTietPhieuTiepNhanBaoHanh bllCTPTNBH;
 
+        private string _maPTNBH;
         public void InitAll()
         {
             InitializeComponent();
@@ -90,6 +91,8 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
             List<DtoChiTietPhieuTiepNhanBaoHanh> listCTPTNBH = new List<DtoChiTietPhieuTiepNhanBaoHanh>();
 
             dtoPTNBH.MaPTNBH = txtMaPTNBH.Text;
+            _maPTNBH = txtMaPTNBH.Text;
+
             dtoPTNBH.MaNV = txtMaNV.Text.ToString();
             dtoPTNBH.NgayLap = DateTime.Now;
 
@@ -133,11 +136,19 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            //frmInPhieuTiepNhanBaoHanh inPTNBH = new frmInPhieuTiepNhanBaoHanh();
-            //inPTNBH.MaPTNBH = txtMaPTNBH.Text.ToString();
-            //inPTNBH.MaNV = cbNV.Text.ToString();
-            //inPTNBH.NgayLap = dateTimePTNBH.Value.ToString();// ("dd/mm/yyyy");
-            //inPTNBH.ShowDialog();
+            btnSave.PerformClick();
+            if (_maPTNBH == txtMaPTNBH.Text)
+            {
+                MessageBox.Show("Không thể tạo phiếu tiếp nhận bảo hành!");
+                return;
+            }
+            PrintPhieuTiepNhanBaoHanh inPTNBH = new PrintPhieuTiepNhanBaoHanh();
+            inPTNBH.MaPTNBH = _maPTNBH;
+            inPTNBH.MaNV = txtMaNV.Text.ToString();
+            inPTNBH.NgayLap = dateTimePTNBH.Value.ToString();// ("dd/mm/yyyy");
+            inPTNBH.ShowDialog();
+
+            _maPTNBH = txtMaPTNBH.Text;
         }
 
         
@@ -520,5 +531,6 @@ namespace QuanLyCuaHangLinhKienMayTinh.Guarantee
                 nbudQuanlity.Text = nbudQuanlity.Value.ToString();
             }
         }
+
     }
 }

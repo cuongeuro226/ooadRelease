@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuTiepNhanBaoHanh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNotify = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,6 +49,11 @@
             this.nbudQuanlity = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quanlity = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
+            this.WarrantyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblTBSoLuong = new System.Windows.Forms.Label();
             this.lblTBMoTaLoi = new System.Windows.Forms.Label();
@@ -70,11 +75,6 @@
             this.MoTaLoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timerNotify = new System.Windows.Forms.Timer(this.components);
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quanlity = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
-            this.WarrantyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -342,6 +342,51 @@
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "MaSanPham";
+            this.ProductID.HeaderText = "Mã sản phẩm";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "TenSanPham";
+            this.ProductName.HeaderText = "Tên sản phẩm";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Quanlity
+            // 
+            // 
+            // 
+            // 
+            this.Quanlity.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.Quanlity.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.Quanlity.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Quanlity.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
+            this.Quanlity.DataPropertyName = "SoLuong";
+            this.Quanlity.HeaderText = "Số lượng";
+            this.Quanlity.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.Quanlity.Name = "Quanlity";
+            this.Quanlity.ReadOnly = true;
+            this.Quanlity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // WarrantyTime
+            // 
+            this.WarrantyTime.DataPropertyName = "ThoiGianBaoHanh";
+            this.WarrantyTime.HeaderText = "Thời gian bảo hành";
+            this.WarrantyTime.Name = "WarrantyTime";
+            this.WarrantyTime.ReadOnly = true;
+            // 
+            // ngayHD
+            // 
+            this.ngayHD.DataPropertyName = "NgayHD";
+            this.ngayHD.HeaderText = "Ngày hóa đơn";
+            this.ngayHD.Name = "ngayHD";
+            this.ngayHD.ReadOnly = true;
+            // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
@@ -505,14 +550,14 @@
             this.dgvDetailWarranty.AllowUserToAddRows = false;
             this.dgvDetailWarranty.AllowUserToDeleteRows = false;
             this.dgvDetailWarranty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetailWarranty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetailWarranty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetailWarranty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetailWarranty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -575,51 +620,6 @@
             // timerNotify
             // 
             this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "MaSanPham";
-            this.ProductID.HeaderText = "Mã sản phẩm";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "TenSanPham";
-            this.ProductName.HeaderText = "Tên sản phẩm";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Quanlity
-            // 
-            // 
-            // 
-            // 
-            this.Quanlity.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.Quanlity.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.Quanlity.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Quanlity.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
-            this.Quanlity.DataPropertyName = "SoLuong";
-            this.Quanlity.HeaderText = "Số lượng";
-            this.Quanlity.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.Quanlity.Name = "Quanlity";
-            this.Quanlity.ReadOnly = true;
-            this.Quanlity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // WarrantyTime
-            // 
-            this.WarrantyTime.DataPropertyName = "ThoiGianBaoHanh";
-            this.WarrantyTime.HeaderText = "Thời gian bảo hành";
-            this.WarrantyTime.Name = "WarrantyTime";
-            this.WarrantyTime.ReadOnly = true;
-            // 
-            // ngayHD
-            // 
-            this.ngayHD.DataPropertyName = "NgayHD";
-            this.ngayHD.HeaderText = "Ngày hóa đơn";
-            this.ngayHD.Name = "ngayHD";
-            this.ngayHD.ReadOnly = true;
             // 
             // frmPhieuTiepNhanBaoHanh
             // 

@@ -26,10 +26,10 @@ namespace QuanLyCuaHangLinhKienMayTinh
         public void showForm()
         {
             // Do some work here.
-            frmMainForm form = new frmMainForm(txtID.Text);
-            form.Show();
-            // Do some more work here
-            Application.Run();
+            //frmMainForm form = new frmMainForm(txtID.Text);
+            //form.Show();
+            //// Do some more work here
+            //Application.Run();
  
         }
 
@@ -55,13 +55,17 @@ namespace QuanLyCuaHangLinhKienMayTinh
                 {
                     if (d.CheckDangNhap(txtID.Text, txtPassword.Text))
                     {
+                        
                         DisplayNotify("Đăng nhập thành công.!", 1); 
                         //new Thread(new ThreadStart(showForm)).Start();
-                        frmMainForm form = new frmMainForm(txtID.Text);
+                        List<string>arr = d.GetFuntionByEmployeeID(txtID.Text);
+
+                        frmMainForm form = new frmMainForm(txtID.Text, arr);
                         this.Hide();
                         form.ShowDialog();
-                        this.Close();
-                        
+                        this.Show();
+                        txtID.Clear();
+                        txtPassword.Clear();
                     }
                     else
                     {

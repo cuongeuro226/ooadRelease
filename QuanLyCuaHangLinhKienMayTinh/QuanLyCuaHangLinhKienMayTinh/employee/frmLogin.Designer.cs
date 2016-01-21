@@ -48,16 +48,17 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(218, 20);
             this.txtID.TabIndex = 1;
-            this.txtID.Text = "MNV0001";
+            this.txtID.Text = "MNV0002";
             this.txtID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(152, 103);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(218, 20);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "123";
+            this.txtPassword.Text = "1";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
             // label1

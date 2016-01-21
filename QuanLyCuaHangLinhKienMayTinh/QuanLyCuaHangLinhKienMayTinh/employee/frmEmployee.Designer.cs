@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -126,7 +125,7 @@
             this.lblListEmployee = new System.Windows.Forms.Label();
             this.picCenter = new System.Windows.Forms.PictureBox();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
-            this.timerNotify = new System.Windows.Forms.Timer(this.components);
+            this.timerNotify = new System.Windows.Forms.Timer();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.grpFunction.SuspendLayout();
@@ -1120,7 +1119,6 @@
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersVisible = false;
-            this.dgvData.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvData.SelectAllSignVisible = false;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(959, 246);
